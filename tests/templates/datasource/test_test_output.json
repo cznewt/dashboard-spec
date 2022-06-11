@@ -1,0 +1,39 @@
+{
+   "editable": true,
+   "fiscalYearStartMonth": 0,
+   "graphTooltip": 0,
+   "liveNow": false,
+   "panels": [ ],
+   "schemaVersion": 35,
+   "style": "dark",
+   "tags": [ ],
+   "templating": {
+      "list": [
+         {
+            "hide": 0,
+            "includeAll": false,
+            "label": "Prometheus datasource",
+            "multi": false,
+            "name": "prometheus",
+            "query": "prometheus",
+            "refresh": 1,
+            "skipUrlSync": false,
+            "type": "datasource"
+         },
+         {
+            "hide": 0,
+            "includeAll": false,
+            "label": "Loki datasource",
+            "multi": false,
+            "name": "loki",
+            "query": "loki",
+            "refresh": 1,
+            "skipUrlSync": false,
+            "type": "datasource"
+         }
+      ]
+   },
+   "title": "Template / Datasource",
+   "version": 1,
+   "weekStart": ""
+}

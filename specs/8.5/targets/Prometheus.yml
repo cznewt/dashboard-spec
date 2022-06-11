@@ -1,0 +1,30 @@
+Prometheus:
+  type: object
+  required:
+    - expr
+  properties:
+    datasource:
+      type: string
+      default: default
+    editorMode:
+      type: string
+      default: code
+    expr:
+      type: string
+    format:
+      type: string
+      default: time_series
+    interval:
+      type: string
+    intervalFactor:
+      type: integer
+    instant:
+      type: boolean
+    legendFormat:
+      type: string
+    range:
+      type: boolean
+      default: true
+    refId:
+      type: string
+      readOnly: true

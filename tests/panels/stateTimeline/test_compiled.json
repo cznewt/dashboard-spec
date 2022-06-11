@@ -1,0 +1,71 @@
+{
+   "editable": true,
+   "fiscalYearStartMonth": 0,
+   "graphTooltip": 0,
+   "liveNow": false,
+   "panels": [
+      {
+         "gridPos": {
+            "h": 6,
+            "w": 8,
+            "x": 0,
+            "y": 0
+         },
+         "id": 2,
+         "targets": [
+            {
+               "datasource": "default",
+               "editorMode": "code",
+               "expr": "node_load1",
+               "format": "time_series",
+               "legendFormat": "{{instance}}",
+               "range": true
+            }
+         ],
+         "title": "Basic test",
+         "transparent": false,
+         "type": "state-timeline"
+      },
+      {
+         "description": "description",
+         "gridPos": {
+            "h": 6,
+            "w": 8,
+            "x": 8,
+            "y": 0
+         },
+         "id": 3,
+         "options": {
+            "legend": {
+               "displayMode": "list",
+               "placement": "bottom"
+            },
+            "mergeValues": true,
+            "showValue": "never",
+            "tooltip": {
+               "mode": "single",
+               "sort": "none"
+            }
+         },
+         "targets": [
+            {
+               "datasource": "default",
+               "editorMode": "code",
+               "expr": "node_load1",
+               "format": "time_series",
+               "legendFormat": "{{instance}}",
+               "range": true
+            }
+         ],
+         "title": "Advanced test",
+         "transparent": false,
+         "type": "state-timeline"
+      }
+   ],
+   "schemaVersion": 35,
+   "style": "dark",
+   "tags": [ ],
+   "title": "Panel / State timeline",
+   "version": 1,
+   "weekStart": ""
+}

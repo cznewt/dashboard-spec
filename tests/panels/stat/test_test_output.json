@@ -1,0 +1,65 @@
+{
+   "editable": true,
+   "fiscalYearStartMonth": 0,
+   "graphTooltip": 0,
+   "liveNow": false,
+   "panels": [
+      {
+         "gridPos": {
+            "h": 6,
+            "w": 8,
+            "x": 0,
+            "y": 0
+         },
+         "id": 2,
+         "title": "Basic test",
+         "transparent": false,
+         "type": "stat"
+      },
+      {
+         "description": "description",
+         "gridPos": {
+            "h": 6,
+            "w": 8,
+            "x": 8,
+            "y": 0
+         },
+         "id": 3,
+         "options": {
+            "colorMode": "value",
+            "graphMode": "none",
+            "justifyMode": "auto",
+            "orientation": "auto",
+            "reduceOptions": {
+               "calcs": [
+                  "mean"
+               ],
+               "values": false
+            },
+            "textMode": "auto"
+         },
+         "title": "Advanced test",
+         "transparent": false,
+         "type": "stat"
+      },
+      {
+         "gridPos": {
+            "h": 8,
+            "w": 12,
+            "x": 0,
+            "y": 8
+         },
+         "id": 4,
+         "repeat": "my-variable",
+         "title": "Repeat test",
+         "transparent": false,
+         "type": "stat"
+      }
+   ],
+   "schemaVersion": 35,
+   "style": "dark",
+   "tags": [ ],
+   "title": "Panel / Stat",
+   "version": 1,
+   "weekStart": ""
+}

@@ -1,0 +1,22 @@
+AlertGroups:
+  allOf:
+    - $ref: "_panel.yml#/panel"
+    - type: object
+      properties:
+        type:
+          type: string
+          default: alertGroups
+          readOnly: true
+        options:
+          type: object
+          required:
+            - alertmanager
+          properties:
+            alertmanager:
+              type: string
+              default: Grafana
+            expandAll:
+              type: boolean
+              default: false
+            labels:
+              type: string

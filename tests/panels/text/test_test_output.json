@@ -1,0 +1,77 @@
+{
+   "editable": true,
+   "fiscalYearStartMonth": 0,
+   "graphTooltip": 0,
+   "liveNow": false,
+   "panels": [
+      {
+         "gridPos": {
+            "h": 6,
+            "w": 8,
+            "x": 0,
+            "y": 0
+         },
+         "id": 2,
+         "title": "Basic test",
+         "transparent": false,
+         "type": "text"
+      },
+      {
+         "description": "description",
+         "gridPos": {
+            "h": 6,
+            "w": 8,
+            "x": 8,
+            "y": 0
+         },
+         "id": 3,
+         "options": {
+            "content": "<h1>coocoo<h1>",
+            "mode": "html"
+         },
+         "title": "HTML test",
+         "transparent": false,
+         "type": "text"
+      },
+      {
+         "gridPos": {
+            "h": 6,
+            "w": 8,
+            "x": 16,
+            "y": 0
+         },
+         "id": 4,
+         "options": {
+            "content": "# coocoo\n\n## subheader\n",
+            "mode": "markdown"
+         },
+         "title": "Markdown test",
+         "transparent": false,
+         "type": "text"
+      },
+      {
+         "gridPos": {
+            "h": 8,
+            "w": 12,
+            "x": 0,
+            "y": 8
+         },
+         "id": 5,
+         "options": {
+            "content": "# variable = $varialble\n",
+            "mode": "markdown"
+         },
+         "repeat": "variable",
+         "repeatDirection": "v",
+         "title": "Repeat test",
+         "transparent": false,
+         "type": "text"
+      }
+   ],
+   "schemaVersion": 35,
+   "style": "dark",
+   "tags": [ ],
+   "title": "Panel / Text",
+   "version": 1,
+   "weekStart": ""
+}

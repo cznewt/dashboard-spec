@@ -1,11 +1,14 @@
-SPEC_VERSION ?= 7.0
+SPEC_VERSION ?= 8.5
 
 validate:
 	@swagger-cli validate \
 		--no-schema \
 		specs/${SPEC_VERSION}/spec.yml
 
-bundle: validate
+build:
+	@go run . ${SPEC_VERSION} jsonnet
+
+bundle: build validate
 	@swagger-cli bundle \
 		--dereference \
 		--outfile _gen/${SPEC_VERSION}/spec.json \
@@ -15,4 +18,4 @@ drone:
 	drone lint
 	drone --server https://drone.grafana.net sign --save grafana/dashboard-spec
 
-.PHONY: validate bundle drone
+.PHONY: validate build bundle drone

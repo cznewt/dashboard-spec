@@ -1,0 +1,10 @@
+link:
+  type: object
+  properties:
+    targetBlank:
+      type: boolean
+      default: true
+    title:
+      type: string
+    url:
+      type: string

@@ -1,0 +1,74 @@
+Gauge:
+  allOf:
+    - $ref: '_panel.yml#/panel'
+    - type: object
+      properties:
+        fieldConfig:
+          $ref: '#/fieldConfig'
+        options:
+          $ref: '#/options'
+        type:
+          type: string
+          default: 'gauge'
+          readOnly: true
+
+defaults:
+  type: object
+  properties:
+    custom:
+      type: object
+      default: {}
+    links:
+      title: Data Links
+      type: array
+      items:
+        $ref: '_link.yml#/link'
+    mappings:
+      type: array
+      items:
+        $ref: '_mapping.yml#/mapping'
+    max:
+      type: integer
+    min:
+      type: integer
+    thresholds:
+      $ref: '_threshold.yml#/threshold'
+    unit:
+      type: string
+
+fieldConfig:
+  type: object
+  properties:
+    defaults:
+      $ref: '#/defaults'
+    overrides:
+      type: array
+      items:
+        $ref: '_override.yml#/override'
+
+options:
+  type: object
+  properties:
+    orientation:
+      type: string
+      default: auto
+    reduceOptions:
+      type: object
+      properties:
+        calcs:
+          type: array
+          items:
+            type: string
+          default:
+            - mean
+        fields:
+          type: string
+        values:
+          type: boolean
+          default: false
+    showThresholdLabels:
+      type: boolean
+      default: false
+    showThresholdMarkers:
+      type: boolean
+      default: true

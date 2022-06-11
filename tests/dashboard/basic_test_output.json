@@ -1,0 +1,23 @@
+{
+   "description": "test dashboard",
+   "editable": true,
+   "fiscalYearStartMonth": 0,
+   "graphTooltip": "shared_crosshair",
+   "liveNow": false,
+   "panels": [ ],
+   "refresh": "1m",
+   "schemaVersion": 35,
+   "style": "light",
+   "tags": [
+      "foo"
+   ],
+   "time": {
+      "from": "now-6h",
+      "to": "now"
+   },
+   "timezone": "utc",
+   "title": "Basic dashboard",
+   "uid": "foo",
+   "version": 1,
+   "weekStart": ""
+}
