@@ -41,7 +41,7 @@ Dashboard:
       type: string
     schemaVersion:
       type: integer
-      default: 35
+      default: 25
     style:
       type: string
       default: dark

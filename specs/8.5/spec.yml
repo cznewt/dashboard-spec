@@ -19,12 +19,16 @@ components:
           $ref: 'panels/Gauge.yml#/Gauge'
         Graph:
           $ref: 'panels/Graph.yml#/Graph'
+        Logs:
+          $ref: 'panels/Logs.yml#/Logs'
         Row:
           $ref: 'panels/Row.yml#/Row'
         Stat:
           $ref: 'panels/Stat.yml#/Stat'
         StateTimeline:
           $ref: 'panels/StateTimeline.yml#/StateTimeline'
+        StatusHistory:
+          $ref: 'panels/StatusHistory.yml#/StatusHistory'
         Table:
           $ref: 'panels/Table.yml#/Table'
         Text:
@@ -43,5 +47,7 @@ components:
           $ref: 'templates/Custom.yml#/Custom'
         Datasource:
           $ref: 'templates/Datasource.yml#/Datasource'
+        Interval:
+          $ref: 'templates/Interval.yml#/Interval'
         Query:
           $ref: 'templates/Query.yml#/Query'

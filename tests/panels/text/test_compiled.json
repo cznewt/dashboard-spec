@@ -68,7 +68,7 @@
          "type": "text"
       }
    ],
-   "schemaVersion": 35,
+   "schemaVersion": 25,
    "style": "dark",
    "tags": [ ],
    "title": "Panel / Text",

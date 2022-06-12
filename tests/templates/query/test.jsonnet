@@ -13,7 +13,7 @@ grafana.dashboard.new(title='Template / Query')
     name='prometheus_single_param',
   )
   .setDatasource(uid='$prometheus',)
-  .setQuery(query='label_values(up{job=~".+"}, cluster)')
+  .setQuery(query='label_values(up{job=~".+"}, job)')
 )
 .addTemplate(
   grafana.template.query.new(
@@ -22,12 +22,5 @@ grafana.dashboard.new(title='Template / Query')
     includeAll=true
   )
   .setDatasource(uid='$prometheus',)
-  .setQuery(query='label_values(up{job=~".+"}, cluster)')
-)
-.addTemplate(
-  grafana.template.query.new(
-    name='prometheus_single_param',
-  )
-  .setDatasource(uid='$prometheus',)
-  .setQuery(query='label_values(up{job=~".+"}, cluster)')
+  .setQuery(query='label_values(up{job=~".+"}, instance)')
 )

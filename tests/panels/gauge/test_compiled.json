@@ -6,8 +6,8 @@
    "panels": [
       {
          "gridPos": {
-            "h": 10,
-            "w": 12,
+            "h": 6,
+            "w": 8,
             "x": 0,
             "y": 0
          },
@@ -16,90 +16,85 @@
             {
                "datasource": "$prometheus",
                "editorMode": "code",
-               "expr": "sum by (job, instance) (node_load1{job=~\"$job\",instance=~\"$instance\"})",
-               "format": "table",
-               "instant": true,
-               "range": false
+               "expr": "node_load1{job=~\"$job\",instance=~\"$instance\"}",
+               "format": "time_series",
+               "legendFormat": "{{instance}}",
+               "range": true
             }
          ],
          "title": "Basic test",
          "transparent": false,
-         "type": "table"
+         "type": "gauge"
       },
       {
          "description": "description",
-         "fieldConfig": {
-            "overrides": [
-               {
-                  "matcher": {
-                     "id": "byName",
-                     "options": "Value #A"
-                  },
-                  "properties": [
-                     {
-                        "id": "custom.displayMode",
-                        "value": "basic"
-                     },
-                     {
-                        "id": "displayName",
-                        "value": "Load 1"
-                     },
-                     {
-                        "id": "noValue",
-                        "value": "N/A"
-                     }
-                  ]
-               },
-               {
-                  "matcher": {
-                     "id": "byName",
-                     "options": "Value #B"
-                  },
-                  "properties": [
-                     {
-                        "id": "custom.displayMode",
-                        "value": "lcd"
-                     },
-                     {
-                        "id": "displayName",
-                        "value": "Load 15"
-                     },
-                     {
-                        "id": "noValue",
-                        "value": "N/A"
-                     }
-                  ]
-               }
-            ]
-         },
          "gridPos": {
-            "h": 10,
-            "w": 12,
-            "x": 12,
+            "h": 6,
+            "w": 8,
+            "x": 8,
             "y": 0
          },
          "id": 3,
+         "options": {
+            "orientation": "auto",
+            "reduceOptions": {
+               "calcs": [
+                  "mean"
+               ],
+               "values": false
+            },
+            "showThresholdLabels": false,
+            "showThresholdMarkers": true
+         },
+         "title": "Advanced test",
+         "transparent": false,
+         "type": "gauge"
+      },
+      {
+         "gridPos": {
+            "h": 6,
+            "w": 8,
+            "x": 16,
+            "y": 0
+         },
+         "id": 4,
+         "options": {
+            "orientation": "auto",
+            "reduceOptions": {
+               "calcs": [
+                  "mean"
+               ],
+               "values": false
+            },
+            "showThresholdLabels": false,
+            "showThresholdMarkers": true
+         },
+         "title": "Mapping test",
+         "transparent": false,
+         "type": "gauge"
+      },
+      {
+         "gridPos": {
+            "h": 4,
+            "w": 12,
+            "x": 0,
+            "y": 8
+         },
+         "id": 5,
+         "repeat": "instance",
          "targets": [
             {
                "datasource": "$prometheus",
                "editorMode": "code",
-               "expr": "sum by (job, instance) (node_load1{job=~\"$job\",instance=~\"$instance\"})",
-               "format": "table",
-               "instant": true,
-               "range": false
-            },
-            {
-               "datasource": "$prometheus",
-               "editorMode": "code",
-               "expr": "sum by (job, instance) (node_load15{job=~\"$job\",instance=~\"$instance\"})",
-               "format": "table",
-               "instant": true,
-               "range": false
+               "expr": "node_load1{job=~\"$job\",instance=\"$instance\"}",
+               "format": "time_series",
+               "legendFormat": "{{instance}}",
+               "range": true
             }
          ],
-         "title": "Advanced test",
+         "title": "Repeat $instance test",
          "transparent": false,
-         "type": "table"
+         "type": "gauge"
       }
    ],
    "schemaVersion": 25,
@@ -229,7 +224,7 @@
          }
       ]
    },
-   "title": "Panel / Table",
+   "title": "Panel / gauge",
    "version": 1,
    "weekStart": ""
 }

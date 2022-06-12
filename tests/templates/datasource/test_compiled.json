@@ -4,7 +4,7 @@
    "graphTooltip": 0,
    "liveNow": false,
    "panels": [ ],
-   "schemaVersion": 35,
+   "schemaVersion": 25,
    "style": "dark",
    "tags": [ ],
    "templating": {

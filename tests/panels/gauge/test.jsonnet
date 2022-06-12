@@ -2,12 +2,18 @@ local defaults = import '../../defaults.libsonnet';
 local grafana = import 'grafonnet/grafana.libsonnet';
 
 local basicTestPanel =
-  grafana.panel.stat.new(
+  grafana.panel.gauge.new(
     title='Basic test'
-  ).addTarget(defaults.simpleTarget);
+  ).addTarget(
+    grafana.target.prometheus.new(
+      datasource='$prometheus',
+      expr='node_load1{job=~"$job",instance=~"$instance"}',
+      legendFormat='{{instance}}'
+    )
+  );
 
 local advancedTestPanel =
-  grafana.panel.stat.new(
+  grafana.panel.gauge.new(
     title='Advanced test',
     description='description',
   )
@@ -15,20 +21,26 @@ local advancedTestPanel =
   );
 
 local mappingTestPanel =
-  grafana.panel.stat.new(
+  grafana.panel.gauge.new(
     title='Mapping test',
   )
   .setOptions(
   );
 
 local repeatTestPanel =
-  grafana.panel.stat.new(
+  grafana.panel.gauge.new(
     title='Repeat $instance test',
     repeat='instance'
   )
-  .addTarget(defaults.simpleTarget);
+  .addTarget(
+    grafana.target.prometheus.new(
+      datasource='$prometheus',
+      expr='node_load1{job=~"$job",instance="$instance"}',
+      legendFormat='{{instance}}'
+    )
+  );
 
-grafana.dashboard.new(title='Panel / Stat')
+grafana.dashboard.new(title='Panel / gauge')
 .addTemplate(defaults.prometheusDatasource)
 .addTemplate(defaults.jobVariable)
 .addTemplate(defaults.instanceVariable)

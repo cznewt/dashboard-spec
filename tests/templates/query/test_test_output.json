@@ -4,7 +4,7 @@
    "graphTooltip": 0,
    "liveNow": false,
    "panels": [ ],
-   "schemaVersion": 35,
+   "schemaVersion": 25,
    "style": "dark",
    "tags": [ ],
    "templating": {
@@ -29,7 +29,7 @@
             "multi": false,
             "name": "prometheus_single_param",
             "query": {
-               "query": "label_values(up{job=~\".+\"}, cluster)",
+               "query": "label_values(up{job=~\".+\"}, job)",
                "refId": "StandardVariableQuery"
             },
             "refresh": 0,
@@ -48,26 +48,7 @@
             "multi": true,
             "name": "prometheus_multi_param",
             "query": {
-               "query": "label_values(up{job=~\".+\"}, cluster)",
-               "refId": "StandardVariableQuery"
-            },
-            "refresh": 0,
-            "regex": "",
-            "skipUrlSync": false,
-            "sort": 0,
-            "type": "query",
-            "useTags": false
-         },
-         {
-            "datasource": {
-               "uid": "$prometheus"
-            },
-            "hide": 0,
-            "includeAll": false,
-            "multi": false,
-            "name": "prometheus_single_param",
-            "query": {
-               "query": "label_values(up{job=~\".+\"}, cluster)",
+               "query": "label_values(up{job=~\".+\"}, instance)",
                "refId": "StandardVariableQuery"
             },
             "refresh": 0,

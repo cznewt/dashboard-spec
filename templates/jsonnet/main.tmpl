@@ -11,4 +11,38 @@
   template:: { {{- range $name, $schema := .Template.Properties}}
     {{objectInflection $name}}:: import 'template/{{objectInflection $name}}.libsonnet',{{end}}
   },
+
+  intervalTemplate(
+    name='interval',
+    label='Interval',
+    intervals='15s,30s,1m,2m,5m,10m,30m,1h,6h,12h,1d,7d',
+    auto_min='15s'
+  )::
+    $.template.interval.new(
+      name=name,
+      label=label,
+      query=intervals
+    )
+    .setCurrent(
+      selected=null,
+      text='auto',
+      value='$__auto_interval_auto_interval',
+    ) +
+    {
+      options: [
+        {
+          selected: true,
+          text: 'auto',
+          value: '$__auto_interval_auto_interval',
+        },
+      ] +
+      [
+        {
+          selected: false,
+          text: interval,
+          value: interval,
+        }
+        for interval in std.split(intervals, ',')
+      ]
+    }
 }

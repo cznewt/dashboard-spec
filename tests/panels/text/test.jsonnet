@@ -1,15 +1,12 @@
 local grafana = import 'grafonnet/grafana.libsonnet';
 
 local basicTestPanel =
-  grafana.panel.text.new(
-    title='Basic test'
-  );
+  grafana.panel.text.new(title='Basic test');
 
 local htmlTestPanel =
   grafana.panel.text.new(
     title='HTML test',
     description='description',
-
   )
   .setOptions(
     mode='html',
@@ -17,9 +14,7 @@ local htmlTestPanel =
   );
 
 local markdownTestPanel =
-  grafana.panel.text.new(
-    title='Markdown test',
-  )
+  grafana.panel.text.new(title='Markdown test',)
   .setOptions(
     mode='markdown',
     content=|||

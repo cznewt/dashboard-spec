@@ -6,99 +6,19 @@
    "panels": [
       {
          "gridPos": {
-            "h": 6,
-            "w": 8,
+            "h": 10,
+            "w": 12,
             "x": 0,
             "y": 0
          },
          "id": 2,
-         "targets": [
-            {
-               "datasource": "$prometheus",
-               "editorMode": "code",
-               "expr": "node_load1{job=~\"$job\",instance=~\"$instance\"}",
-               "format": "time_series",
-               "legendFormat": "{{instance}}",
-               "range": true
-            }
-         ],
-         "title": "Basic test",
-         "transparent": false,
-         "type": "stat"
-      },
-      {
-         "description": "description",
-         "gridPos": {
-            "h": 6,
-            "w": 8,
-            "x": 8,
-            "y": 0
-         },
-         "id": 3,
          "options": {
-            "colorMode": "value",
-            "graphMode": "none",
-            "justifyMode": "auto",
-            "orientation": "auto",
-            "reduceOptions": {
-               "calcs": [
-                  "mean"
-               ],
-               "values": false
-            },
-            "textMode": "auto"
+            "content": "...\n",
+            "mode": "markdown"
          },
-         "title": "Advanced test",
+         "title": "Interval test:  $interval",
          "transparent": false,
-         "type": "stat"
-      },
-      {
-         "gridPos": {
-            "h": 6,
-            "w": 8,
-            "x": 16,
-            "y": 0
-         },
-         "id": 4,
-         "options": {
-            "colorMode": "value",
-            "graphMode": "none",
-            "justifyMode": "auto",
-            "orientation": "auto",
-            "reduceOptions": {
-               "calcs": [
-                  "mean"
-               ],
-               "values": false
-            },
-            "textMode": "auto"
-         },
-         "title": "Mapping test",
-         "transparent": false,
-         "type": "stat"
-      },
-      {
-         "gridPos": {
-            "h": 4,
-            "w": 12,
-            "x": 0,
-            "y": 8
-         },
-         "id": 5,
-         "repeat": "instance",
-         "targets": [
-            {
-               "datasource": "$prometheus",
-               "editorMode": "code",
-               "expr": "node_load1{job=~\"$job\",instance=~\"$instance\"}",
-               "format": "time_series",
-               "legendFormat": "{{instance}}",
-               "range": true
-            }
-         ],
-         "title": "Repeat $instance test",
-         "transparent": false,
-         "type": "stat"
+         "type": "text"
       }
    ],
    "schemaVersion": 25,
@@ -122,30 +42,11 @@
                "uid": "$prometheus"
             },
             "hide": 0,
-            "includeAll": true,
-            "multi": true,
-            "name": "job",
+            "includeAll": false,
+            "multi": false,
+            "name": "prometheus_single_param",
             "query": {
-               "query": "label_values(node_load1{job=~\".+\"}, job)",
-               "refId": "StandardVariableQuery"
-            },
-            "refresh": 0,
-            "regex": "",
-            "skipUrlSync": false,
-            "sort": 0,
-            "type": "query",
-            "useTags": false
-         },
-         {
-            "datasource": {
-               "uid": "$prometheus"
-            },
-            "hide": 0,
-            "includeAll": true,
-            "multi": true,
-            "name": "instance",
-            "query": {
-               "query": "label_values(node_load1{job=~\"$job\"}, instance)",
+               "query": "label_values(up{job=~\".+\"}, cluster)",
                "refId": "StandardVariableQuery"
             },
             "refresh": 0,
@@ -228,7 +129,7 @@
          }
       ]
    },
-   "title": "Panel / Stat",
+   "title": "Template / Interval",
    "version": 1,
    "weekStart": ""
 }

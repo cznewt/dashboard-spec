@@ -6,7 +6,7 @@
    "liveNow": false,
    "panels": [ ],
    "refresh": "1m",
-   "schemaVersion": 35,
+   "schemaVersion": 25,
    "style": "light",
    "tags": [
       "foo"

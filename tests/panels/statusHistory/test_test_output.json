@@ -6,7 +6,7 @@
    "panels": [
       {
          "gridPos": {
-            "h": 10,
+            "h": 12,
             "w": 12,
             "x": 0,
             "y": 0
@@ -16,90 +16,68 @@
             {
                "datasource": "$prometheus",
                "editorMode": "code",
-               "expr": "sum by (job, instance) (node_load1{job=~\"$job\",instance=~\"$instance\"})",
-               "format": "table",
-               "instant": true,
-               "range": false
+               "expr": "node_load1{job=~\"$job\",instance=~\"$instance\"}",
+               "format": "time_series",
+               "legendFormat": "{{instance}}",
+               "range": true
             }
          ],
          "title": "Basic test",
          "transparent": false,
-         "type": "table"
+         "type": "status-history"
       },
       {
          "description": "description",
          "fieldConfig": {
-            "overrides": [
-               {
-                  "matcher": {
-                     "id": "byName",
-                     "options": "Value #A"
-                  },
-                  "properties": [
+            "defaults": {
+               "thresholds": {
+                  "steps": [
                      {
-                        "id": "custom.displayMode",
-                        "value": "basic"
+                        "color": "green"
                      },
                      {
-                        "id": "displayName",
-                        "value": "Load 1"
+                        "color": "yellow",
+                        "value": 1
                      },
                      {
-                        "id": "noValue",
-                        "value": "N/A"
-                     }
-                  ]
-               },
-               {
-                  "matcher": {
-                     "id": "byName",
-                     "options": "Value #B"
-                  },
-                  "properties": [
-                     {
-                        "id": "custom.displayMode",
-                        "value": "lcd"
-                     },
-                     {
-                        "id": "displayName",
-                        "value": "Load 15"
-                     },
-                     {
-                        "id": "noValue",
-                        "value": "N/A"
+                        "color": "red",
+                        "value": 2
                      }
                   ]
                }
-            ]
+            }
          },
          "gridPos": {
-            "h": 10,
+            "h": 12,
             "w": 12,
             "x": 12,
             "y": 0
          },
          "id": 3,
+         "options": {
+            "legend": {
+               "displayMode": "list",
+               "placement": "bottom"
+            },
+            "showValue": "never",
+            "tooltip": {
+               "mode": "single",
+               "sort": "none"
+            }
+         },
          "targets": [
             {
                "datasource": "$prometheus",
                "editorMode": "code",
-               "expr": "sum by (job, instance) (node_load1{job=~\"$job\",instance=~\"$instance\"})",
-               "format": "table",
-               "instant": true,
-               "range": false
-            },
-            {
-               "datasource": "$prometheus",
-               "editorMode": "code",
-               "expr": "sum by (job, instance) (node_load15{job=~\"$job\",instance=~\"$instance\"})",
-               "format": "table",
-               "instant": true,
-               "range": false
+               "expr": "avg_over_time(node_load1{job=~\"$job\",instance=~\"$instance\"}[$interval]",
+               "format": "time_series",
+               "legendFormat": "{{instance}}",
+               "range": true
             }
          ],
-         "title": "Advanced test",
+         "title": "Advanced test (per $interval)",
          "transparent": false,
-         "type": "table"
+         "type": "status-history"
       }
    ],
    "schemaVersion": 25,
@@ -229,7 +207,7 @@
          }
       ]
    },
-   "title": "Panel / Table",
+   "title": "Panel / State timeline",
    "version": 1,
    "weekStart": ""
 }

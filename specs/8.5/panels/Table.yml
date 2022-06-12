@@ -15,6 +15,9 @@ Table:
 custom:
   type: object
   properties:
+    displayMode:
+      type: string
+      default: auto
     width:
       type: integer
 
