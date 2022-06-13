@@ -1,17 +1,22 @@
-Loki:
+Alertmanager:
   type: object
   required:
-    - expr
+    - filters
   properties:
+    active:
+      type: boolean
+      default: true
     datasource:
       type: string
       default: default
-    expr:
+    filters:
       type: string
-    legendFormat:
+    receiver:
       type: string
       default: ''
-      description: Defines the legend.
     refId:
       type: string
       readOnly: true
+    silenced:
+      type: boolean
+      default: false

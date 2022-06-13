@@ -22,7 +22,7 @@
                "range": false
             }
          ],
-         "title": "Basic test",
+         "title": "Singe value test",
          "transparent": false,
          "type": "table"
       },
@@ -58,7 +58,7 @@
                   "properties": [
                      {
                         "id": "custom.displayMode",
-                        "value": "lcd"
+                        "value": "lcd-gauge"
                      },
                      {
                         "id": "displayName",
@@ -97,7 +97,103 @@
                "range": false
             }
          ],
-         "title": "Advanced test",
+         "title": "Multiple values test",
+         "transparent": false,
+         "type": "table"
+      },
+      {
+         "description": "description",
+         "fieldConfig": {
+            "overrides": [
+               {
+                  "matcher": {
+                     "id": "byName",
+                     "options": "Load 1"
+                  },
+                  "properties": [
+                     {
+                        "id": "custom.displayMode",
+                        "value": "basic"
+                     },
+                     {
+                        "id": "noValue",
+                        "value": "N/A"
+                     }
+                  ]
+               },
+               {
+                  "matcher": {
+                     "id": "byName",
+                     "options": "Load 15"
+                  },
+                  "properties": [
+                     {
+                        "id": "custom.displayMode",
+                        "value": "lcd-gauge"
+                     },
+                     {
+                        "id": "noValue",
+                        "value": "N/A"
+                     }
+                  ]
+               }
+            ]
+         },
+         "gridPos": {
+            "h": 14,
+            "w": 24,
+            "x": 0,
+            "y": 10
+         },
+         "id": 4,
+         "targets": [
+            {
+               "datasource": "$prometheus",
+               "editorMode": "code",
+               "expr": "sum by (job, instance) (node_load1{job=~\"$job\",instance=~\"$instance\"})",
+               "format": "table",
+               "instant": true,
+               "range": false
+            },
+            {
+               "datasource": "$prometheus",
+               "editorMode": "code",
+               "expr": "sum by (job, instance) (node_load15{job=~\"$job\",instance=~\"$instance\"})",
+               "format": "table",
+               "instant": true,
+               "range": false
+            }
+         ],
+         "title": "Multiple columns/values test",
+         "transformations": [
+            {
+               "id": "filterFieldsByName",
+               "options": {
+                  "include": {
+                     "names": [
+                        "instance",
+                        "Value #A",
+                        "Value #B"
+                     ]
+                  }
+               }
+            },
+            {
+               "id": "seriesToColumns",
+               "options": {
+                  "byField": "instance"
+               }
+            },
+            {
+               "id": "organize",
+               "options": {
+                  "renameByName": {
+                     "Value #A": "Load 1",
+                     "Value #B": "Load 15"
+                  }
+               }
+            }
+         ],
          "transparent": false,
          "type": "table"
       }

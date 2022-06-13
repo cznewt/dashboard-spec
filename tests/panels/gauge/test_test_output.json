@@ -7,7 +7,7 @@
       {
          "gridPos": {
             "h": 6,
-            "w": 8,
+            "w": 16,
             "x": 0,
             "y": 0
          },
@@ -31,7 +31,7 @@
          "gridPos": {
             "h": 6,
             "w": 8,
-            "x": 8,
+            "x": 16,
             "y": 0
          },
          "id": 3,
@@ -46,47 +46,44 @@
             "showThresholdLabels": false,
             "showThresholdMarkers": true
          },
+         "targets": [
+            {
+               "datasource": "$prometheus",
+               "editorMode": "code",
+               "expr": "avg(node_load1{job=~\"$job\",instance=~\"$instance\"}) by (job)",
+               "format": "time_series",
+               "instant": true,
+               "legendFormat": "{{instance}}",
+               "range": false
+            }
+         ],
          "title": "Advanced test",
          "transparent": false,
          "type": "gauge"
       },
       {
-         "gridPos": {
-            "h": 6,
-            "w": 8,
-            "x": 16,
-            "y": 0
+         "fieldConfig": {
+            "defaults": {
+               "max": 5,
+               "min": 0,
+               "thresholds": {
+                  "mode": "absolute"
+               }
+            }
          },
-         "id": 4,
-         "options": {
-            "orientation": "auto",
-            "reduceOptions": {
-               "calcs": [
-                  "mean"
-               ],
-               "values": false
-            },
-            "showThresholdLabels": false,
-            "showThresholdMarkers": true
-         },
-         "title": "Mapping test",
-         "transparent": false,
-         "type": "gauge"
-      },
-      {
          "gridPos": {
-            "h": 4,
+            "h": 8,
             "w": 12,
             "x": 0,
             "y": 8
          },
-         "id": 5,
+         "id": 4,
          "repeat": "instance",
          "targets": [
             {
                "datasource": "$prometheus",
                "editorMode": "code",
-               "expr": "node_load1{job=~\"$job\",instance=\"$instance\"}",
+               "expr": "node_load1{job=~\"$job\",instance=~\"$instance\"}",
                "format": "time_series",
                "legendFormat": "{{instance}}",
                "range": true
@@ -224,7 +221,7 @@
          }
       ]
    },
-   "title": "Panel / gauge",
+   "title": "Panel / Gauge",
    "version": 1,
    "weekStart": ""
 }

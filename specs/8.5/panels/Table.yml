@@ -7,6 +7,10 @@ Table:
           $ref: '#/fieldConfig'
         options:
           $ref: '#/options'
+        transformations:
+          type: array
+          items:
+            $ref: '_transformation.yml#/transformation'
         type:
           type: string
           default: 'table'

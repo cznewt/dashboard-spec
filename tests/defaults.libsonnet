@@ -1,6 +1,37 @@
 local grafana = import 'grafonnet/grafana.libsonnet';
 
 {
+  alertmanagerCriticalTarget::
+    grafana.target.alertmanager.new(
+      datasource='$alertmanager',
+      filters='alertname=~"(.+)",severity="critical"',
+      active=true
+    ),
+  alertmanagerWarningTarget::
+    grafana.target.alertmanager.new(
+      datasource='$alertmanager',
+      filters='alertname=~"(.+)",severity="warning"',
+      active=true
+    ),
+  alertmanagerInfoTarget::
+    grafana.target.alertmanager.new(
+      datasource='$alertmanager',
+      filters='alertname=~"(.+)",severity="info"',
+      active=true
+    ),
+  lokiSimpleTarget::
+    grafana.target.loki.new(
+      datasource='$loki',
+      expr='{cluster=~"(.+)"}'
+    ),
+  prometheusSingleInstantTarget::
+    grafana.target.prometheus.new(
+      datasource='$prometheus',
+      expr='avg(node_load1{job=~"$job",instance=~"$instance"}) by (job)',
+      legendFormat='{{instance}}',
+      instant=true,
+      range=false,
+    ),
   simpleTarget::
     grafana.target.prometheus.new(
       datasource='$prometheus',
@@ -28,6 +59,18 @@ local grafana = import 'grafonnet/grafana.libsonnet';
       name='prometheus',
       label='Prometheus datasource',
       query='prometheus'
+    ),
+  lokiDatasource::
+    grafana.template.datasource.new(
+      name='loki',
+      label='Loki datasource',
+      query='loki'
+    ),
+  alertmanagerDatasource::
+    grafana.template.datasource.new(
+      name='alertmanager',
+      label='Alertmanager datasource',
+      query='camptocamp-prometheus-alertmanager-datasource'
     ),
   jobVariable::
     grafana.template.query.new(

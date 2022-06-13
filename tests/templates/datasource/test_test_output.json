@@ -30,6 +30,17 @@
             "refresh": 1,
             "skipUrlSync": false,
             "type": "datasource"
+         },
+         {
+            "hide": 0,
+            "includeAll": false,
+            "label": "Alertmanager datasource",
+            "multi": false,
+            "name": "alertmanager",
+            "query": "camptocamp-prometheus-alertmanager-datasource",
+            "refresh": 1,
+            "skipUrlSync": false,
+            "type": "datasource"
          }
       ]
    },

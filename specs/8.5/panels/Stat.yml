@@ -7,6 +7,10 @@ Stat:
           $ref: '#/fieldConfig'
         options:
           $ref: '#/options'
+        transformations:
+          type: array
+          items:
+            $ref: '_transformation.yml#/transformation'
         type:
           type: string
           default: 'stat'
@@ -18,6 +22,8 @@ defaults:
     custom:
       type: object
       default: {}
+    displayName:
+      type: string
     links:
       title: Data Links
       type: array
@@ -31,6 +37,8 @@ defaults:
       type: integer
     min:
       type: integer
+    noValue:
+      type: string
     thresholds:
       $ref: '_threshold.yml#/threshold'
     unit:

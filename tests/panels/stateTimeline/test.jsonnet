@@ -14,7 +14,6 @@ local advancedTestPanel =
   )
   .setOptions(showValue='never')
   .addTarget(defaults.simpleTarget)
-  //.addMapping(type='range', from=1, to=2, text='OK',)
   .addThresholdStep(color='green', value=null)
   .addThresholdStep(color='yellow', value=1)
   .addThresholdStep(color='red', value=2);

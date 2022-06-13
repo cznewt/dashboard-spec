@@ -3,30 +3,32 @@ local grafana = import 'grafonnet/grafana.libsonnet';
 
 local linesTestPanel =
   grafana.panel.graph.new(
-    title='Lines test'
+    title='Line chart'
   )
   .addTarget(defaults.simpleTarget);
 
 local barsTestPanel =
   grafana.panel.graph.new(
-    title='Bars test',
+    title='Bar chart',
     bars=true,
     lines=false,
   )
   .addTarget(defaults.simpleTarget);
 
-local dashesTestPanel =
+local pointsTestPanel =
   grafana.panel.graph.new(
-    title='Dashes test',
-    dashes=true,
+    title='Point chart',
+    points=true,
     lines=false,
   )
   .addTarget(defaults.simpleTarget);
 
 local repeatTestPanel =
   grafana.panel.graph.new(
-    title='Repeat $instance test',
-    repeat='instance'
+    title='Repeat $instance',
+    repeat='instance',
+    bars=true,
+    lines=false,
   )
   .addTarget(
     grafana.target.prometheus.new(
@@ -36,7 +38,7 @@ local repeatTestPanel =
     )
   );
 
-grafana.dashboard.new(title='Panel / Graph')
+grafana.dashboard.new(title='Panel / Time series')
 .addTemplate(defaults.prometheusDatasource)
 .addTemplate(defaults.alertmanagerDatasource)
 .addTemplate(defaults.jobVariable)
@@ -45,6 +47,6 @@ grafana.dashboard.new(title='Panel / Graph')
 .addPanels([
   linesTestPanel.setGridPos(h=6, w=8, x=0, y=0),
   barsTestPanel.setGridPos(h=6, w=8, x=8, y=0),
-  dashesTestPanel.setGridPos(h=6, w=8, x=16, y=0),
-  repeatTestPanel.setGridPos(h=4, w=12, x=0, y=8),
+  pointsTestPanel.setGridPos(h=6, w=8, x=16, y=0),
+  repeatTestPanel.setGridPos(h=6, w=12, x=0, y=6),
 ])

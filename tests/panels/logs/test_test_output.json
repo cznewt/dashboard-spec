@@ -5,165 +5,52 @@
    "liveNow": false,
    "panels": [
       {
-         "bars": false,
-         "dashLength": 10,
-         "dashes": false,
-         "fill": 1,
-         "fillGradient": 0,
          "gridPos": {
-            "h": 6,
-            "w": 8,
-            "x": 0,
-            "y": 0
-         },
-         "hiddenSeries": false,
-         "id": 2,
-         "lines": true,
-         "linewidth": 1,
-         "nullPointMode": "null",
-         "percentage": false,
-         "points": false,
-         "renderer": "flot",
-         "spaceLength": 10,
-         "stack": false,
-         "steppedLine": false,
-         "targets": [
-            {
-               "datasource": "$prometheus",
-               "editorMode": "code",
-               "expr": "node_load1{job=~\"$job\",instance=~\"$instance\"}",
-               "format": "time_series",
-               "legendFormat": "{{instance}}",
-               "range": true
-            }
-         ],
-         "title": "Lines test",
-         "tooltip": {
-            "value_type": "individual"
-         },
-         "transparent": false,
-         "type": "graph"
-      },
-      {
-         "bars": true,
-         "dashLength": 10,
-         "dashes": false,
-         "fill": 1,
-         "fillGradient": 0,
-         "gridPos": {
-            "h": 6,
-            "w": 8,
-            "x": 8,
-            "y": 0
-         },
-         "hiddenSeries": false,
-         "id": 3,
-         "lines": false,
-         "linewidth": 1,
-         "nullPointMode": "null",
-         "percentage": false,
-         "points": false,
-         "renderer": "flot",
-         "spaceLength": 10,
-         "stack": false,
-         "steppedLine": false,
-         "targets": [
-            {
-               "datasource": "$prometheus",
-               "editorMode": "code",
-               "expr": "node_load1{job=~\"$job\",instance=~\"$instance\"}",
-               "format": "time_series",
-               "legendFormat": "{{instance}}",
-               "range": true
-            }
-         ],
-         "title": "Bars test",
-         "tooltip": {
-            "value_type": "individual"
-         },
-         "transparent": false,
-         "type": "graph"
-      },
-      {
-         "bars": false,
-         "dashLength": 10,
-         "dashes": true,
-         "fill": 1,
-         "fillGradient": 0,
-         "gridPos": {
-            "h": 6,
-            "w": 8,
-            "x": 16,
-            "y": 0
-         },
-         "hiddenSeries": false,
-         "id": 4,
-         "lines": false,
-         "linewidth": 1,
-         "nullPointMode": "null",
-         "percentage": false,
-         "points": false,
-         "renderer": "flot",
-         "spaceLength": 10,
-         "stack": false,
-         "steppedLine": false,
-         "targets": [
-            {
-               "datasource": "$prometheus",
-               "editorMode": "code",
-               "expr": "node_load1{job=~\"$job\",instance=~\"$instance\"}",
-               "format": "time_series",
-               "legendFormat": "{{instance}}",
-               "range": true
-            }
-         ],
-         "title": "Dashes test",
-         "tooltip": {
-            "value_type": "individual"
-         },
-         "transparent": false,
-         "type": "graph"
-      },
-      {
-         "bars": false,
-         "dashLength": 10,
-         "dashes": false,
-         "fill": 1,
-         "fillGradient": 0,
-         "gridPos": {
-            "h": 4,
+            "h": 20,
             "w": 12,
             "x": 0,
-            "y": 8
+            "y": 0
          },
-         "hiddenSeries": false,
-         "id": 5,
-         "lines": true,
-         "linewidth": 1,
-         "nullPointMode": "null",
-         "percentage": false,
-         "points": false,
-         "renderer": "flot",
-         "repeat": "instance",
-         "spaceLength": 10,
-         "stack": false,
-         "steppedLine": false,
+         "id": 2,
          "targets": [
             {
-               "datasource": "$prometheus",
-               "editorMode": "code",
-               "expr": "node_load1{job=~\"$job\",instance=\"$instance\"}",
-               "format": "time_series",
-               "legendFormat": "{{instance}}",
-               "range": true
+               "datasource": "$loki",
+               "expr": "{cluster=~\"(.+)\"}",
+               "legendFormat": ""
             }
          ],
-         "title": "Repeat $instance test",
-         "tooltip": {
-            "value_type": "individual"
-         },
+         "title": "Simple table",
          "transparent": false,
-         "type": "graph"
+         "type": "logs"
+      },
+      {
+         "gridPos": {
+            "h": 20,
+            "w": 12,
+            "x": 12,
+            "y": 0
+         },
+         "id": 3,
+         "options": {
+            "dedupStrategy": "none",
+            "enableLogDetails": true,
+            "prettifyLogMessage": true,
+            "showCommonLabels": false,
+            "showLabels": false,
+            "showTime": true,
+            "sortOrder": "Descending",
+            "wrapLogMessage": true
+         },
+         "targets": [
+            {
+               "datasource": "$loki",
+               "expr": "{cluster=~\"(.+)\"}",
+               "legendFormat": ""
+            }
+         ],
+         "title": "Pretty table",
+         "transparent": false,
+         "type": "logs"
       }
    ],
    "schemaVersion": 25,
@@ -185,10 +72,10 @@
          {
             "hide": 0,
             "includeAll": false,
-            "label": "Alertmanager datasource",
+            "label": "Loki datasource",
             "multi": false,
-            "name": "alertmanager",
-            "query": "camptocamp-prometheus-alertmanager-datasource",
+            "name": "loki",
+            "query": "loki",
             "refresh": 1,
             "skipUrlSync": false,
             "type": "datasource"
@@ -304,7 +191,7 @@
          }
       ]
    },
-   "title": "Panel / Graph",
+   "title": "Panel / Logs",
    "version": 1,
    "weekStart": ""
 }
