@@ -5,13 +5,28 @@
    "liveNow": false,
    "panels": [
       {
+         "collapse": true,
+         "collapsed": false,
          "gridPos": {
-            "h": 20,
-            "w": 12,
+            "h": 1,
+            "w": 24,
             "x": 0,
             "y": 0
          },
          "id": 2,
+         "showTitle": true,
+         "title": "Logs panels",
+         "titleSize": "h6",
+         "type": "row"
+      },
+      {
+         "gridPos": {
+            "h": 20,
+            "w": 12,
+            "x": 0,
+            "y": 1
+         },
+         "id": 3,
          "targets": [
             {
                "datasource": "$loki",
@@ -19,7 +34,7 @@
                "legendFormat": ""
             }
          ],
-         "title": "Simple table",
+         "title": "Simple table (Loki datasource)",
          "transparent": false,
          "type": "logs"
       },
@@ -28,9 +43,9 @@
             "h": 20,
             "w": 12,
             "x": 12,
-            "y": 0
+            "y": 1
          },
-         "id": 3,
+         "id": 4,
          "options": {
             "dedupStrategy": "none",
             "enableLogDetails": true,
@@ -48,7 +63,7 @@
                "legendFormat": ""
             }
          ],
-         "title": "Pretty table",
+         "title": "Pretty table (Loki datasource)",
          "transparent": false,
          "type": "logs"
       }

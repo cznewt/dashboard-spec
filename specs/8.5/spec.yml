@@ -15,10 +15,14 @@ components:
       properties:
         AlertGroups:
           $ref: 'panels/AlertGroups.yml#/AlertGroups'
+        BarGauge:
+          $ref: 'panels/BarGauge.yml#/BarGauge'
         Gauge:
           $ref: 'panels/Gauge.yml#/Gauge'
         Graph:
           $ref: 'panels/Graph.yml#/Graph'
+        Heatmap:
+          $ref: 'panels/Heatmap.yml#/Heatmap'
         Logs:
           $ref: 'panels/Logs.yml#/Logs'
         Row:
@@ -40,10 +44,20 @@ components:
       properties:
         Alertmanager:
           $ref: 'targets/Alertmanager.yml#/Alertmanager'
+        ClickHouse:
+          $ref: 'targets/ClickHouse.yml#/ClickHouse'
+        Elasticsearch:
+          $ref: 'targets/Elasticsearch.yml#/Elasticsearch'
+        Graphite:
+          $ref: 'targets/Graphite.yml#/Graphite'
         Loki:
           $ref: 'targets/Loki.yml#/Loki'
+        OpenTsdb:
+          $ref: 'targets/OpenTsdb.yml#/OpenTsdb'
         Prometheus:
           $ref: 'targets/Prometheus.yml#/Prometheus'
+        Sentry:
+          $ref: 'targets/Sentry.yml#/Sentry'
     Template:
       type: object
       properties:

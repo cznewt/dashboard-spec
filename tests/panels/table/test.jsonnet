@@ -5,14 +5,14 @@ local singleValueTestPanel =
   grafana.panel.table.new(
     title='Singe value test'
   )
-  .addTarget(defaults.tabularTarget);
+  .addTarget(defaults.prometheusTabularTarget);
 
 local multiValuesTestPanel =
   grafana.panel.table.new(
     title='Multiple values test',
     description='description',
   )
-  .addTarget(defaults.tabularTarget)
+  .addTarget(defaults.prometheusTabularTarget)
   .addOverride(
     matcher={ id: 'byName', options: 'Value #A' },
     properties=[
@@ -21,7 +21,7 @@ local multiValuesTestPanel =
       { id: 'noValue', value: 'N/A' },
     ]
   )
-  .addTarget(defaults.secondTabularTarget)
+  .addTarget(defaults.prometheusSecondTabularTarget)
   .addOverride(
     matcher={ id: 'byName', options: 'Value #B' },
     properties=[
@@ -61,7 +61,7 @@ local multiColumnValuesTestPanel =
       },
     ]
   )
-  .addTarget(defaults.tabularTarget)
+  .addTarget(defaults.prometheusTabularTarget)
   .addOverride(
     matcher={ id: 'byName', options: 'Load 1' },
     properties=[
@@ -69,7 +69,7 @@ local multiColumnValuesTestPanel =
       { id: 'noValue', value: 'N/A' },
     ]
   )
-  .addTarget(defaults.secondTabularTarget)
+  .addTarget(defaults.prometheusSecondTabularTarget)
   .addOverride(
     matcher={ id: 'byName', options: 'Load 15' },
     properties=[
@@ -80,8 +80,8 @@ local multiColumnValuesTestPanel =
 
 grafana.dashboard.new(title='Panel / Table')
 .addTemplate(defaults.prometheusDatasource)
-.addTemplate(defaults.jobVariable)
-.addTemplate(defaults.instanceVariable)
+.addTemplate(defaults.prometheusJobVariable)
+.addTemplate(defaults.prometheusInstanceVariable)
 .addTemplate(defaults.intervalVariable)
 .addPanels([
   singleValueTestPanel.setGridPos(h=10, w=12, x=0, y=0),

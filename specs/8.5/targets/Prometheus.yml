@@ -9,6 +9,9 @@ Prometheus:
     editorMode:
       type: string
       default: code
+    exemplar:
+      type: boolean
+      default: false
     expr:
       type: string
     format:

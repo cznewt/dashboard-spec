@@ -33,8 +33,8 @@ local advancedTestPanel =
 
 grafana.dashboard.new(title='Panel / State timeline')
 .addTemplate(defaults.prometheusDatasource)
-.addTemplate(defaults.jobVariable)
-.addTemplate(defaults.instanceVariable)
+.addTemplate(defaults.prometheusJobVariable)
+.addTemplate(defaults.prometheusInstanceVariable)
 .addTemplate(defaults.intervalVariable)
 .addPanels([
   basicTestPanel.setGridPos(h=12, w=12, x=0, y=0),

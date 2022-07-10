@@ -5,17 +5,33 @@
    "liveNow": false,
    "panels": [
       {
+         "collapse": true,
+         "collapsed": false,
          "gridPos": {
-            "h": 6,
-            "w": 8,
+            "h": 1,
+            "w": 24,
             "x": 0,
             "y": 0
          },
          "id": 2,
+         "showTitle": true,
+         "title": "Gauge panels",
+         "titleSize": "h6",
+         "type": "row"
+      },
+      {
+         "gridPos": {
+            "h": 6,
+            "w": 16,
+            "x": 0,
+            "y": 1
+         },
+         "id": 3,
          "targets": [
             {
                "datasource": "$prometheus",
                "editorMode": "code",
+               "exemplar": false,
                "expr": "node_load1{job=~\"$job\",instance=~\"$instance\"}",
                "format": "time_series",
                "legendFormat": "{{instance}}",
@@ -27,35 +43,11 @@
          "type": "gauge"
       },
       {
-         "description": "description",
-         "gridPos": {
-            "h": 6,
-            "w": 8,
-            "x": 8,
-            "y": 0
-         },
-         "id": 3,
-         "options": {
-            "orientation": "auto",
-            "reduceOptions": {
-               "calcs": [
-                  "mean"
-               ],
-               "values": false
-            },
-            "showThresholdLabels": false,
-            "showThresholdMarkers": true
-         },
-         "title": "Advanced test",
-         "transparent": false,
-         "type": "gauge"
-      },
-      {
          "gridPos": {
             "h": 6,
             "w": 8,
             "x": 16,
-            "y": 0
+            "y": 1
          },
          "id": 4,
          "options": {
@@ -69,16 +61,54 @@
             "showThresholdLabels": false,
             "showThresholdMarkers": true
          },
-         "title": "Mapping test",
+         "targets": [
+            {
+               "datasource": "$prometheus",
+               "editorMode": "code",
+               "exemplar": false,
+               "expr": "avg(node_load1{job=~\"$job\",instance=~\"$instance\"}) by (job)",
+               "format": "time_series",
+               "instant": true,
+               "legendFormat": "{{instance}}",
+               "range": false
+            }
+         ],
+         "title": "Advanced test",
          "transparent": false,
          "type": "gauge"
       },
       {
+         "fieldConfig": {
+            "defaults": {
+               "max": 5,
+               "min": 0,
+               "thresholds": {
+                  "mode": "absolute",
+                  "steps": [
+                     {
+                        "color": "blue"
+                     },
+                     {
+                        "color": "green",
+                        "value": 0.5
+                     },
+                     {
+                        "color": "yellow",
+                        "value": 1
+                     },
+                     {
+                        "color": "red",
+                        "value": 2
+                     }
+                  ]
+               }
+            }
+         },
          "gridPos": {
-            "h": 4,
+            "h": 8,
             "w": 12,
             "x": 0,
-            "y": 8
+            "y": 9
          },
          "id": 5,
          "repeat": "instance",
@@ -86,7 +116,8 @@
             {
                "datasource": "$prometheus",
                "editorMode": "code",
-               "expr": "node_load1{job=~\"$job\",instance=\"$instance\"}",
+               "exemplar": false,
+               "expr": "node_load1{job=~\"$job\",instance=~\"$instance\"}",
                "format": "time_series",
                "legendFormat": "{{instance}}",
                "range": true
@@ -224,7 +255,7 @@
          }
       ]
    },
-   "title": "Panel / gauge",
+   "title": "Panel / Gauge",
    "version": 1,
    "weekStart": ""
 }

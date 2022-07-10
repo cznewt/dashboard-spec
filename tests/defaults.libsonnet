@@ -1,6 +1,12 @@
 local grafana = import 'grafonnet/grafana.libsonnet';
 
 {
+  alertmanagerDatasource::
+    grafana.template.datasource.new(
+      name='alertmanager',
+      label='Alertmanager datasource',
+      query='camptocamp-prometheus-alertmanager-datasource'
+    ),
   alertmanagerCriticalTarget::
     grafana.target.alertmanager.new(
       datasource='$alertmanager',
@@ -19,11 +25,20 @@ local grafana = import 'grafonnet/grafana.libsonnet';
       filters='alertname=~"(.+)",severity="info"',
       active=true
     ),
-  lokiSimpleTarget::
-    grafana.target.loki.new(
-      datasource='$loki',
-      expr='{cluster=~"(.+)"}'
+  prometheusDatasource::
+    grafana.template.datasource.new(
+      name='prometheus',
+      label='Prometheus datasource',
+      query='prometheus'
     ),
+  prometheusJobVariable::
+    grafana.template.query.new(name='job', multi=true, includeAll=true)
+    .setDatasource(uid='$prometheus',)
+    .setQuery(query='label_values(node_load1{job=~".+"}, job)'),
+  prometheusInstanceVariable::
+    grafana.template.query.new(name='instance', multi=true, includeAll=true)
+    .setDatasource(uid='$prometheus',)
+    .setQuery(query='label_values(node_load1{job=~"$job"}, instance)'),
   prometheusSingleInstantTarget::
     grafana.target.prometheus.new(
       datasource='$prometheus',
@@ -32,13 +47,19 @@ local grafana = import 'grafonnet/grafana.libsonnet';
       instant=true,
       range=false,
     ),
-  simpleTarget::
+  prometheusSimpleTarget::
     grafana.target.prometheus.new(
       datasource='$prometheus',
       expr='node_load1{job=~"$job",instance=~"$instance"}',
       legendFormat='{{instance}}'
     ),
-  tabularTarget::
+  prometheusBucketTarget::
+    grafana.target.prometheus.new(
+      datasource='$prometheus',
+      expr='sum(increase(prometheus_http_request_duration_seconds_bucket[5m])) by (le)',
+      legendFormat='{{le}}'
+    ),
+  prometheusTabularTarget::
     grafana.target.prometheus.new(
       datasource='$prometheus',
       expr='sum by (job, instance) (node_load1{job=~"$job",instance=~"$instance"})',
@@ -46,7 +67,7 @@ local grafana = import 'grafonnet/grafana.libsonnet';
       range=false,
       instant=true,
     ),
-  secondTabularTarget::
+  prometheusSecondTabularTarget::
     grafana.target.prometheus.new(
       datasource='$prometheus',
       expr='sum by (job, instance) (node_load15{job=~"$job",instance=~"$instance"})',
@@ -54,40 +75,37 @@ local grafana = import 'grafonnet/grafana.libsonnet';
       range=false,
       instant=true,
     ),
-  prometheusDatasource::
-    grafana.template.datasource.new(
-      name='prometheus',
-      label='Prometheus datasource',
-      query='prometheus'
-    ),
   lokiDatasource::
     grafana.template.datasource.new(
       name='loki',
       label='Loki datasource',
       query='loki'
     ),
-  alertmanagerDatasource::
-    grafana.template.datasource.new(
-      name='alertmanager',
-      label='Alertmanager datasource',
-      query='camptocamp-prometheus-alertmanager-datasource'
+  lokiSimpleTarget::
+    grafana.target.loki.new(
+      datasource='$loki',
+      expr='{cluster=~"(.+)"}'
     ),
-  jobVariable::
-    grafana.template.query.new(
-      name='job',
-      multi=true,
-      includeAll=true
-    )
-    .setDatasource(uid='$prometheus',)
-    .setQuery(query='label_values(node_load1{job=~".+"}, job)'),
-  instanceVariable::
-    grafana.template.query.new(
-      name='instance',
-      multi=true,
-      includeAll=true
-    )
-    .setDatasource(uid='$prometheus',)
-    .setQuery(query='label_values(node_load1{job=~"$job"}, instance)'),
+  sentryDatasource::
+    grafana.template.datasource.new(
+      name='sentry',
+      label='Sentry datasource',
+      query='grafana-sentry-datasource'
+    ),
+  sentrySimpleTarget::
+    grafana.target.sentry.new(
+      datasource='$sentry',
+    ),
+  elasticsearchDatasource::
+    grafana.template.datasource.new(
+      name='elasticsearch',
+      label='ElasticSearch datasource',
+      query='elasticsearch'
+    ),
+  elasticsearchVariable::
+    grafana.template.query.new(name='variable', multi=false, includeAll=false)
+    .setDatasource(uid='$elasticsearch',)
+    .setQuery(query='{"find": "terms", "field": "variable", "query": "var:value"}'),
   intervalVariable::
     grafana.intervalTemplate(
       intervals='1m,10m,30m,1h,6h,12h,1d,7d,14d,30d',

@@ -1,0 +1,180 @@
+{
+   "editable": true,
+   "fiscalYearStartMonth": 0,
+   "graphTooltip": 0,
+   "liveNow": false,
+   "panels": [
+      {
+         "collapse": true,
+         "collapsed": false,
+         "gridPos": {
+            "h": 1,
+            "w": 24,
+            "x": 0,
+            "y": 0
+         },
+         "id": 2,
+         "showTitle": true,
+         "title": "Sentry charts",
+         "titleSize": "h6",
+         "type": "row"
+      },
+      {
+         "gridPos": {
+            "h": 20,
+            "w": 12,
+            "x": 0,
+            "y": 1
+         },
+         "id": 3,
+         "targets": [
+            {
+               "datasource": "$sentry",
+               "queryType": "issues"
+            }
+         ],
+         "title": "Simple table (Sentry datasource)",
+         "transparent": false,
+         "type": "table"
+      },
+      {
+         "bars": false,
+         "dashLength": 10,
+         "dashes": false,
+         "fill": 1,
+         "fillGradient": 0,
+         "gridPos": {
+            "h": 20,
+            "w": 12,
+            "x": 12,
+            "y": 1
+         },
+         "hiddenSeries": false,
+         "id": 4,
+         "lines": true,
+         "linewidth": 1,
+         "nullPointMode": "null",
+         "percentage": false,
+         "points": false,
+         "renderer": "flot",
+         "spaceLength": 10,
+         "stack": false,
+         "steppedLine": false,
+         "targets": [
+            {
+               "datasource": "$sentry",
+               "queryType": "issues"
+            }
+         ],
+         "title": "Simple time series (Sentry datasource)",
+         "tooltip": {
+            "value_type": "individual"
+         },
+         "transparent": false,
+         "type": "graph"
+      }
+   ],
+   "schemaVersion": 25,
+   "style": "dark",
+   "tags": [ ],
+   "templating": {
+      "list": [
+         {
+            "hide": 0,
+            "includeAll": false,
+            "label": "Prometheus datasource",
+            "multi": false,
+            "name": "prometheus",
+            "query": "prometheus",
+            "refresh": 1,
+            "skipUrlSync": false,
+            "type": "datasource"
+         },
+         {
+            "hide": 0,
+            "includeAll": false,
+            "label": "Sentry datasource",
+            "multi": false,
+            "name": "sentry",
+            "query": "grafana-sentry-datasource",
+            "refresh": 1,
+            "skipUrlSync": false,
+            "type": "datasource"
+         },
+         {
+            "auto": false,
+            "current": {
+               "text": "auto",
+               "value": "$__auto_interval_auto_interval"
+            },
+            "hide": 0,
+            "label": "Interval",
+            "name": "interval",
+            "options": [
+               {
+                  "selected": true,
+                  "text": "auto",
+                  "value": "$__auto_interval_auto_interval"
+               },
+               {
+                  "selected": false,
+                  "text": "1m",
+                  "value": "1m"
+               },
+               {
+                  "selected": false,
+                  "text": "10m",
+                  "value": "10m"
+               },
+               {
+                  "selected": false,
+                  "text": "30m",
+                  "value": "30m"
+               },
+               {
+                  "selected": false,
+                  "text": "1h",
+                  "value": "1h"
+               },
+               {
+                  "selected": false,
+                  "text": "6h",
+                  "value": "6h"
+               },
+               {
+                  "selected": false,
+                  "text": "12h",
+                  "value": "12h"
+               },
+               {
+                  "selected": false,
+                  "text": "1d",
+                  "value": "1d"
+               },
+               {
+                  "selected": false,
+                  "text": "7d",
+                  "value": "7d"
+               },
+               {
+                  "selected": false,
+                  "text": "14d",
+                  "value": "14d"
+               },
+               {
+                  "selected": false,
+                  "text": "30d",
+                  "value": "30d"
+               }
+            ],
+            "query": "1m,10m,30m,1h,6h,12h,1d,7d,14d,30d",
+            "refresh": 0,
+            "skipUrlSync": false,
+            "type": "interval"
+         }
+      ]
+   },
+   "title": "Datasource / Sentry",
+   "version": 1,
+   "weekStart": ""
+}

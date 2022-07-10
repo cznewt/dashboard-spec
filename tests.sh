@@ -38,7 +38,7 @@ do
     if [[ "$1" == "update" ]]; then cp $json $json_e; fi
 
     t="Checking $i..."
-    if diff -urt $json $json_e
+    if diff -urt $json_e  $json
     then
         echo $t OK
     else

@@ -5,7 +5,7 @@ local linesTestPanel =
   grafana.panel.graph.new(
     title='Lines test'
   )
-  .addTarget(defaults.simpleTarget);
+  .addTarget(defaults.prometheusSimpleTarget);
 
 local barsTestPanel =
   grafana.panel.graph.new(
@@ -13,7 +13,7 @@ local barsTestPanel =
     bars=true,
     lines=false,
   )
-  .addTarget(defaults.simpleTarget);
+  .addTarget(defaults.prometheusSimpleTarget);
 
 local dashesTestPanel =
   grafana.panel.graph.new(
@@ -21,7 +21,7 @@ local dashesTestPanel =
     dashes=true,
     lines=false,
   )
-  .addTarget(defaults.simpleTarget);
+  .addTarget(defaults.prometheusSimpleTarget);
 
 local repeatTestPanel =
   grafana.panel.graph.new(
@@ -39,8 +39,8 @@ local repeatTestPanel =
 grafana.dashboard.new(title='Panel / Graph')
 .addTemplate(defaults.prometheusDatasource)
 .addTemplate(defaults.alertmanagerDatasource)
-.addTemplate(defaults.jobVariable)
-.addTemplate(defaults.instanceVariable)
+.addTemplate(defaults.prometheusJobVariable)
+.addTemplate(defaults.prometheusInstanceVariable)
 .addTemplate(defaults.intervalVariable)
 .addPanels([
   linesTestPanel.setGridPos(h=6, w=8, x=0, y=0),

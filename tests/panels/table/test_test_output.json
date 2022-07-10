@@ -16,6 +16,7 @@
             {
                "datasource": "$prometheus",
                "editorMode": "code",
+               "exemplar": false,
                "expr": "sum by (job, instance) (node_load1{job=~\"$job\",instance=~\"$instance\"})",
                "format": "table",
                "instant": true,
@@ -83,6 +84,7 @@
             {
                "datasource": "$prometheus",
                "editorMode": "code",
+               "exemplar": false,
                "expr": "sum by (job, instance) (node_load1{job=~\"$job\",instance=~\"$instance\"})",
                "format": "table",
                "instant": true,
@@ -91,6 +93,7 @@
             {
                "datasource": "$prometheus",
                "editorMode": "code",
+               "exemplar": false,
                "expr": "sum by (job, instance) (node_load15{job=~\"$job\",instance=~\"$instance\"})",
                "format": "table",
                "instant": true,
@@ -150,6 +153,7 @@
             {
                "datasource": "$prometheus",
                "editorMode": "code",
+               "exemplar": false,
                "expr": "sum by (job, instance) (node_load1{job=~\"$job\",instance=~\"$instance\"})",
                "format": "table",
                "instant": true,
@@ -158,6 +162,7 @@
             {
                "datasource": "$prometheus",
                "editorMode": "code",
+               "exemplar": false,
                "expr": "sum by (job, instance) (node_load15{job=~\"$job\",instance=~\"$instance\"})",
                "format": "table",
                "instant": true,

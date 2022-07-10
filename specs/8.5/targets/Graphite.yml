@@ -3,13 +3,6 @@ Graphite:
   required:
     - target
   properties:
-    target:
-      type: string
-    targetFull:
-      type: string
-    textEditor:
-      type: boolean
-      default: false
     datasource:
       type: string
     hide:
@@ -18,3 +11,10 @@ Graphite:
     refId:
       type: string
       readOnly: true
+    target:
+      type: string
+    targetFull:
+      type: string
+    textEditor:
+      type: boolean
+      default: false

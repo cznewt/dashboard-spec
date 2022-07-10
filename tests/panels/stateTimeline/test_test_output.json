@@ -31,6 +31,7 @@
             {
                "datasource": "$prometheus",
                "editorMode": "code",
+               "exemplar": false,
                "expr": "node_load1{job=~\"$job\",instance=~\"$instance\"}",
                "format": "time_series",
                "legendFormat": "{{instance}}",
@@ -100,6 +101,7 @@
             {
                "datasource": "$prometheus",
                "editorMode": "code",
+               "exemplar": false,
                "expr": "node_load1{job=~\"$job\",instance=~\"$instance\"}",
                "format": "time_series",
                "legendFormat": "{{instance}}",

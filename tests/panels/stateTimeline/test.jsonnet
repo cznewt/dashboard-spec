@@ -5,7 +5,7 @@ local basicTestPanel =
   grafana.panel.stateTimeline.new(
     title='Basic test'
   )
-  .addTarget(defaults.simpleTarget);
+  .addTarget(defaults.prometheusSimpleTarget);
 
 local advancedTestPanel =
   grafana.panel.stateTimeline.new(
@@ -13,15 +13,15 @@ local advancedTestPanel =
     description='description',
   )
   .setOptions(showValue='never')
-  .addTarget(defaults.simpleTarget)
+  .addTarget(defaults.prometheusSimpleTarget)
   .addThresholdStep(color='green', value=null)
   .addThresholdStep(color='yellow', value=1)
   .addThresholdStep(color='red', value=2);
 
 grafana.dashboard.new(title='Panel / State timeline')
 .addTemplate(defaults.prometheusDatasource)
-.addTemplate(defaults.jobVariable)
-.addTemplate(defaults.instanceVariable)
+.addTemplate(defaults.prometheusJobVariable)
+.addTemplate(defaults.prometheusInstanceVariable)
 .addTemplate(defaults.intervalVariable)
 .addPanels([
   grafana.panel.text.new()

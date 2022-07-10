@@ -41,6 +41,28 @@
             "refresh": 1,
             "skipUrlSync": false,
             "type": "datasource"
+         },
+         {
+            "hide": 0,
+            "includeAll": false,
+            "label": "ElasticSearch datasource",
+            "multi": false,
+            "name": "elasticsearch",
+            "query": "elasticsearch",
+            "refresh": 1,
+            "skipUrlSync": false,
+            "type": "datasource"
+         },
+         {
+            "hide": 0,
+            "includeAll": false,
+            "label": "Sentry datasource",
+            "multi": false,
+            "name": "sentry",
+            "query": "grafana-sentry-datasource",
+            "refresh": 1,
+            "skipUrlSync": false,
+            "type": "datasource"
          }
       ]
    },

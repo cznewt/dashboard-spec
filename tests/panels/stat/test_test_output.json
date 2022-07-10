@@ -5,47 +5,26 @@
    "liveNow": false,
    "panels": [
       {
+         "collapse": true,
+         "collapsed": false,
          "gridPos": {
-            "h": 6,
-            "w": 8,
+            "h": 1,
+            "w": 24,
             "x": 0,
             "y": 0
          },
          "id": 2,
-         "options": {
-            "colorMode": "value",
-            "graphMode": "none",
-            "justifyMode": "auto",
-            "orientation": "auto",
-            "reduceOptions": {
-               "calcs": [
-                  "mean"
-               ],
-               "values": false
-            },
-            "textMode": "auto"
-         },
-         "targets": [
-            {
-               "datasource": "$prometheus",
-               "editorMode": "code",
-               "expr": "node_load1{job=~\"$job\",instance=~\"$instance\"}",
-               "format": "time_series",
-               "legendFormat": "{{instance}}",
-               "range": true
-            }
-         ],
-         "title": "Basic test",
-         "transparent": false,
-         "type": "stat"
+         "showTitle": true,
+         "title": "Stat panels",
+         "titleSize": "h6",
+         "type": "row"
       },
       {
-         "description": "description",
          "gridPos": {
             "h": 6,
             "w": 8,
-            "x": 8,
-            "y": 0
+            "x": 0,
+            "y": 1
          },
          "id": 3,
          "options": {
@@ -65,6 +44,44 @@
             {
                "datasource": "$prometheus",
                "editorMode": "code",
+               "exemplar": false,
+               "expr": "node_load1{job=~\"$job\",instance=~\"$instance\"}",
+               "format": "time_series",
+               "legendFormat": "{{instance}}",
+               "range": true
+            }
+         ],
+         "title": "Basic test",
+         "transparent": false,
+         "type": "stat"
+      },
+      {
+         "description": "description",
+         "gridPos": {
+            "h": 6,
+            "w": 8,
+            "x": 8,
+            "y": 1
+         },
+         "id": 4,
+         "options": {
+            "colorMode": "value",
+            "graphMode": "none",
+            "justifyMode": "auto",
+            "orientation": "auto",
+            "reduceOptions": {
+               "calcs": [
+                  "mean"
+               ],
+               "values": false
+            },
+            "textMode": "auto"
+         },
+         "targets": [
+            {
+               "datasource": "$prometheus",
+               "editorMode": "code",
+               "exemplar": false,
                "expr": "avg(node_load1{job=~\"$job\",instance=~\"$instance\"}) by (job)",
                "format": "time_series",
                "instant": true,
@@ -109,13 +126,14 @@
             "h": 6,
             "w": 8,
             "x": 16,
-            "y": 0
+            "y": 1
          },
-         "id": 4,
+         "id": 5,
          "targets": [
             {
                "datasource": "$prometheus",
                "editorMode": "code",
+               "exemplar": false,
                "expr": "avg(node_load1{job=~\"$job\",instance=~\"$instance\"}) by (job)",
                "format": "time_series",
                "instant": true,
@@ -128,25 +146,40 @@
          "type": "stat"
       },
       {
+         "description": "description",
          "gridPos": {
             "h": 6,
             "w": 12,
             "x": 0,
-            "y": 6
+            "y": 7
          },
-         "id": 5,
-         "repeat": "instance",
+         "id": 6,
+         "options": {
+            "colorMode": "value",
+            "graphMode": "none",
+            "justifyMode": "auto",
+            "orientation": "auto",
+            "reduceOptions": {
+               "calcs": [
+                  "mean"
+               ],
+               "values": false
+            },
+            "textMode": "auto"
+         },
          "targets": [
             {
                "datasource": "$prometheus",
                "editorMode": "code",
-               "expr": "node_load1{job=~\"$job\",instance=~\"$instance\"}",
+               "exemplar": false,
+               "expr": "avg(node_load1{job=~\"$job\",instance=~\"$instance\"}) by (job)",
                "format": "time_series",
+               "instant": true,
                "legendFormat": "{{instance}}",
-               "range": true
+               "range": false
             }
          ],
-         "title": "Repeat $instance test",
+         "title": "Advanced test",
          "transparent": false,
          "type": "stat"
       },
@@ -176,9 +209,9 @@
             "h": 6,
             "w": 6,
             "x": 0,
-            "y": 12
+            "y": 13
          },
-         "id": 6,
+         "id": 7,
          "options": {
             "colorMode": "value",
             "graphMode": "none",
@@ -246,9 +279,9 @@
             "h": 6,
             "w": 6,
             "x": 0,
-            "y": 18
+            "y": 19
          },
-         "id": 7,
+         "id": 8,
          "options": {
             "colorMode": "background",
             "graphMode": "area",
@@ -316,9 +349,9 @@
             "h": 6,
             "w": 6,
             "x": 0,
-            "y": 24
+            "y": 25
          },
-         "id": 8,
+         "id": 9,
          "options": {
             "colorMode": "background",
             "graphMode": "none",
