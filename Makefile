@@ -19,3 +19,7 @@ drone:
 	drone --server https://drone.grafana.net sign --save grafana/dashboard-spec
 
 .PHONY: validate build bundle drone
+
+.PHONY: tests
+tests:
+	bash tests.sh

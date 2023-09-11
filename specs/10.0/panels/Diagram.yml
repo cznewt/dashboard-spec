@@ -1,0 +1,103 @@
+Diagram:
+  allOf:
+    - $ref: "_panel.yml#/panel"
+    - type: object
+      properties:
+        fieldConfig:
+          $ref: "#/fieldConfig"
+        options:
+          $ref: "#/options"
+        type:
+          type: string
+          default: "jdbranham-diagram-panel"
+          readOnly: true
+
+defaults:
+  type: object
+  properties:
+    custom:
+      type: object
+      default: {}
+    links:
+      title: Data Links
+      type: array
+      items:
+        $ref: "_link.yml#/link"
+    mappings:
+      type: array
+      items:
+        $ref: "_mapping.yml#/mapping"
+    max:
+      type: integer
+    min:
+      type: integer
+    thresholds:
+      $ref: "_threshold.yml#/threshold"
+    unit:
+      type: string
+
+fieldConfig:
+  type: object
+  properties:
+    defaults:
+      $ref: "#/defaults"
+    overrides:
+      type: array
+      items:
+        $ref: "_override.yml#/override"
+
+options:
+  type: object
+  properties:
+    useBackground:
+      type: boolean
+      default: false
+    content:
+      type: string
+      default: ""
+    nodeSize:
+      type: object
+      properties:
+        minWidth:
+          type: integer
+        minHeight:
+          type: integer
+    legend:
+      type: object
+      properties:
+        show:
+          type: boolean
+          default: true
+    style:
+      type: string
+      default: ""
+    pluginVersion:
+      type: string
+      default: ""
+    composites:
+      type: array
+    metricCharacterReplacements:
+      type: array
+    maxWidth:
+      type: boolean
+      default: true
+    moddedSeriesVal:
+      type: integer
+    valueName:
+      type: string
+      default: last
+    mode:
+      type: string
+      default: content
+    mermaidServiceUrl:
+      type: string
+      default: ""
+    useBasicAuth:
+      type: boolean
+      default: false
+    authUsername:
+      type: string
+      default: ""
+    authPassword:
+      type: string
+      default: ""

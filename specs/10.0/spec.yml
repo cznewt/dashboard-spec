@@ -2,7 +2,7 @@ openapi: 3.0.3
 
 info:
   title: Grafana Dashboard Spec
-  version: '8.5'
+  version: '10.0'
 
 paths: {}
 
@@ -17,6 +17,8 @@ components:
           $ref: 'panels/AlertGroups.yml#/AlertGroups'
         BarGauge:
           $ref: 'panels/BarGauge.yml#/BarGauge'
+        Diagram:
+          $ref: 'panels/Diagram.yml#/Diagram'
         Gauge:
           $ref: 'panels/Gauge.yml#/Gauge'
         Graph:
