@@ -7,6 +7,12 @@ local grafana = import 'grafonnet/grafana.libsonnet';
       label='Alertmanager datasource',
       query='camptocamp-prometheus-alertmanager-datasource'
     ),
+  alertmanagerSimpleTarget::
+    grafana.target.alertmanager.new(
+      datasource='$alertmanager',
+      filters='alertname=~"(.+)"',
+      active=true
+    ),
   alertmanagerCriticalTarget::
     grafana.target.alertmanager.new(
       datasource='$alertmanager',
@@ -106,6 +112,23 @@ local grafana = import 'grafonnet/grafana.libsonnet';
     grafana.template.query.new(name='variable', multi=false, includeAll=false)
     .setDatasource(uid='$elasticsearch',)
     .setQuery(query='{"find": "terms", "field": "variable", "query": "var:value"}'),
+  elasticsearchSimpleTarget::
+    grafana.target.prometheus.new(
+      datasource='$elasticsearch',
+      expr='node_load1{job=~"$job",instance=~"$instance"}',
+      legendFormat='{{instance}}'
+    ),
+  testdataDatasource::
+    grafana.template.datasource.new(
+      name='testdata',
+      label='TestData DB datasource',
+      query='testdata'
+    ),
+  testdataSimpleTarget::
+    grafana.target.testdata.new(
+      datasource='$testdata',
+      csvContent='50%,70%,90%,100%\r\n0.4,0.6,0.8,1.0',
+    ),
   intervalVariable::
     grafana.intervalTemplate(
       intervals='1m,10m,30m,1h,6h,12h,1d,7d,14d,30d',

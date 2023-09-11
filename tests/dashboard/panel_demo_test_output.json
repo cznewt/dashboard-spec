@@ -623,6 +623,7 @@
       {
          "fieldConfig": {
             "defaults": {
+               "color": { },
                "noValue": "0",
                "thresholds": {
                   "mode": "absolute",
@@ -692,6 +693,7 @@
       {
          "fieldConfig": {
             "defaults": {
+               "color": { },
                "displayName": "${instance}",
                "noValue": "0",
                "thresholds": {
@@ -762,6 +764,7 @@
       {
          "fieldConfig": {
             "defaults": {
+               "color": { },
                "displayName": "${instance}",
                "noValue": "0",
                "thresholds": {

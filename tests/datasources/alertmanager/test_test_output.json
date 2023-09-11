@@ -29,11 +29,29 @@
          "id": 3,
          "targets": [
             {
-               "datasource": "$sentry",
-               "queryType": "issues"
+               "active": true,
+               "datasource": "$alertmanager",
+               "filters": "alertname=~\"(.+)\"",
+               "receiver": "",
+               "silenced": false
             }
          ],
          "title": "Simple table (Alertmanager datasource)",
+         "transformations": [
+            {
+               "id": "filterFieldsByName",
+               "options": {
+                  "include": {
+                     "names": [
+                        "alertname",
+                        "severity",
+                        "summary",
+                        "description"
+                     ]
+                  }
+               }
+            }
+         ],
          "transparent": false,
          "type": "table"
       },
@@ -62,8 +80,11 @@
          "steppedLine": false,
          "targets": [
             {
-               "datasource": "$sentry",
-               "queryType": "issues"
+               "active": true,
+               "datasource": "$alertmanager",
+               "filters": "alertname=~\"(.+)\"",
+               "receiver": "",
+               "silenced": false
             }
          ],
          "title": "Simple time series (Alertmanager datasource)",

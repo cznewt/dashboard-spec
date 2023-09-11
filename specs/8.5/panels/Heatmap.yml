@@ -16,7 +16,7 @@ Heatmap:
           properties:
             cardColor:
               type: string
-              default: '#b4ff00'
+              default: "#b4ff00"
             colorScale:
               type: string
               default: sqrt

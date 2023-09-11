@@ -1,46 +1,53 @@
 Table:
   allOf:
-    - $ref: '_panel.yml#/panel'
+    - $ref: "_panel.yml#/panel"
     - type: object
       properties:
         fieldConfig:
-          $ref: '#/fieldConfig'
+          $ref: "#/fieldConfig"
         options:
-          $ref: '#/options'
+          $ref: "#/options"
         transformations:
           type: array
           items:
-            $ref: '_transformation.yml#/transformation'
+            $ref: "_transformation.yml#/transformation"
         type:
           type: string
-          default: 'table'
+          default: "table"
           readOnly: true
 
 custom:
   type: object
   properties:
+    align:
+      type: string
+      default: auto
     displayMode:
       type: string
       default: auto
     width:
       type: integer
+    inspect:
+      type: boolean
+    filterable:
+      type: boolean
 
 defaults:
   type: object
   properties:
     custom:
-      $ref: '#/custom'
+      $ref: "#/custom"
     displayName:
       type: string
     links:
       title: Data Links
       type: array
       items:
-        $ref: '_link.yml#/link'
+        $ref: "_link.yml#/link"
     mappings:
       type: array
       items:
-        $ref: '_mapping.yml#/mapping'
+        $ref: "_mapping.yml#/mapping"
     max:
       type: integer
     min:
@@ -48,7 +55,7 @@ defaults:
     noValue:
       type: string
     thresholds:
-      $ref: '_threshold.yml#/threshold'
+      $ref: "_threshold.yml#/threshold"
     unit:
       type: string
       default: short
@@ -57,11 +64,11 @@ fieldConfig:
   type: object
   properties:
     defaults:
-      $ref: '#/defaults'
+      $ref: "#/defaults"
     overrides:
       type: array
       items:
-        $ref: '_override.yml#/override'
+        $ref: "_override.yml#/override"
 
 options:
   type: object

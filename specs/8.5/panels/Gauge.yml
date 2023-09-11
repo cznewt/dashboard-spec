@@ -1,15 +1,15 @@
 Gauge:
   allOf:
-    - $ref: '_panel.yml#/panel'
+    - $ref: "_panel.yml#/panel"
     - type: object
       properties:
         fieldConfig:
-          $ref: '#/fieldConfig'
+          $ref: "#/fieldConfig"
         options:
-          $ref: '#/options'
+          $ref: "#/options"
         type:
           type: string
-          default: 'gauge'
+          default: "gauge"
           readOnly: true
 
 defaults:
@@ -22,17 +22,17 @@ defaults:
       title: Data Links
       type: array
       items:
-        $ref: '_link.yml#/link'
+        $ref: "_link.yml#/link"
     mappings:
       type: array
       items:
-        $ref: '_mapping.yml#/mapping'
+        $ref: "_mapping.yml#/mapping"
     max:
       type: integer
     min:
       type: integer
     thresholds:
-      $ref: '_threshold.yml#/threshold'
+      $ref: "_threshold.yml#/threshold"
     unit:
       type: string
 
@@ -40,11 +40,11 @@ fieldConfig:
   type: object
   properties:
     defaults:
-      $ref: '#/defaults'
+      $ref: "#/defaults"
     overrides:
       type: array
       items:
-        $ref: '_override.yml#/override'
+        $ref: "_override.yml#/override"
 
 options:
   type: object

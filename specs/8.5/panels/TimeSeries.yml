@@ -1,6 +1,6 @@
 TimeSeries:
   allOf:
-    - $ref: '_panel.yml#/panel'
+    - $ref: "_panel.yml#/panel"
     - type: object
       properties:
         bars:
@@ -21,7 +21,7 @@ TimeSeries:
             Controls how many decimals are displayed for legend values and
             graph hover tooltips.
         fieldConfig:
-          $ref: '#/fieldConfig'
+          $ref: "#/fieldConfig"
         fill:
           type: integer
           default: 1
@@ -38,7 +38,7 @@ TimeSeries:
           default: false
           description: Hide the series.
         legend:
-          $ref: '#/legend'
+          $ref: "#/legend"
         lines:
           type: boolean
           default: true
@@ -49,7 +49,7 @@ TimeSeries:
           description: The width of the line for a series.
         nullPointMode:
           type: string
-          default: 'null'
+          default: "null"
           description: |-
             How null values are displayed.
             * 'null' - If there is a gap in the series, meaning a null value,
@@ -61,7 +61,7 @@ TimeSeries:
               value or values, then the line will skip the gap and connect to the
               next non-null value.
         options:
-          $ref: '#/options'
+          $ref: "#/options"
         percentage:
           type: boolean
           default: false
@@ -80,7 +80,7 @@ TimeSeries:
           default: "flot"
           readOnly: true
         seriesOverrides:
-          $ref: '#/seriesOverrides'
+          $ref: "#/seriesOverrides"
         spaceLength:
           type: integer
           default: 10
@@ -94,7 +94,7 @@ TimeSeries:
           default: false
           description: Draws adjacent points as staircase.
         thresholds:
-          $ref: '_threshold.yml#/threshold'
+          $ref: "_threshold.yml#/threshold"
         timeFrom:
           type: string
         timeRegions:
@@ -225,11 +225,11 @@ fieldConfig:
   type: object
   properties:
     defaults:
-      $ref: '#/defaults'
+      $ref: "#/defaults"
     overrides:
       type: array
       items:
-        $ref: '_override.yml#/override'
+        $ref: "_override.yml#/override"
 
 legend:
   type: object
@@ -280,7 +280,7 @@ options:
     dataLinks:
       type: array
       items:
-        $ref: '_link.yml#/link'
+        $ref: "_link.yml#/link"
 
 seriesOverrides:
   type: array

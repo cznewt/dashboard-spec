@@ -58,6 +58,8 @@ components:
           $ref: 'targets/Prometheus.yml#/Prometheus'
         Sentry:
           $ref: 'targets/Sentry.yml#/Sentry'
+        Testdata:
+          $ref: 'targets/Testdata.yml#/Testdata'
     Template:
       type: object
       properties:

@@ -15,7 +15,7 @@
          },
          "id": 2,
          "showTitle": true,
-         "title": "Alertmanager charts",
+         "title": "Elasticsearch charts",
          "titleSize": "h6",
          "type": "row"
       },
@@ -29,14 +29,16 @@
          "id": 3,
          "targets": [
             {
-               "active": true,
-               "datasource": "$alertmanager",
-               "filters": "alertname=~\"(.+)\"",
-               "receiver": "",
-               "silenced": false
+               "datasource": "$elasticsearch",
+               "editorMode": "code",
+               "exemplar": false,
+               "expr": "node_load1{job=~\"$job\",instance=~\"$instance\"}",
+               "format": "time_series",
+               "legendFormat": "{{instance}}",
+               "range": true
             }
          ],
-         "title": "Simple table (Alertmanager datasource)",
+         "title": "Simple table (Elasticsearch datasource)",
          "transformations": [
             {
                "id": "filterFieldsByName",
@@ -80,14 +82,16 @@
          "steppedLine": false,
          "targets": [
             {
-               "active": true,
-               "datasource": "$alertmanager",
-               "filters": "alertname=~\"(.+)\"",
-               "receiver": "",
-               "silenced": false
+               "datasource": "$elasticsearch",
+               "editorMode": "code",
+               "exemplar": false,
+               "expr": "node_load1{job=~\"$job\",instance=~\"$instance\"}",
+               "format": "time_series",
+               "legendFormat": "{{instance}}",
+               "range": true
             }
          ],
-         "title": "Simple time series (Alertmanager datasource)",
+         "title": "Simple time series (Elasticsearch datasource)",
          "tooltip": {
             "value_type": "individual"
          },
@@ -114,10 +118,10 @@
          {
             "hide": 0,
             "includeAll": false,
-            "label": "Alertmanager datasource",
+            "label": "ElasticSearch datasource",
             "multi": false,
-            "name": "alertmanager",
-            "query": "camptocamp-prometheus-alertmanager-datasource",
+            "name": "elasticsearch",
+            "query": "elasticsearch",
             "refresh": 1,
             "skipUrlSync": false,
             "type": "datasource"
@@ -195,7 +199,7 @@
          }
       ]
    },
-   "title": "Datasource / Alertmanager",
+   "title": "Datasource / Elasticsearch",
    "version": 1,
    "weekStart": ""
 }

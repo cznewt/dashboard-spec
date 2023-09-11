@@ -19,6 +19,11 @@ Stat:
 defaults:
   type: object
   properties:
+    color:
+      type: object
+      properties:
+        mode:
+          type: string
     custom:
       type: object
       default: {}

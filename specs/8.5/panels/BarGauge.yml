@@ -1,12 +1,12 @@
 BarGauge:
   allOf:
-    - $ref: '_panel.yml#/panel'
+    - $ref: "_panel.yml#/panel"
     - type: object
       properties:
         fieldConfig:
-          $ref: '_fieldConfig.yml#/fieldConfig'
+          $ref: "_fieldConfig.yml#/fieldConfig"
         options:
-          $ref: '#/options'
+          $ref: "#/options"
         type:
           type: string
           default: bargauge
