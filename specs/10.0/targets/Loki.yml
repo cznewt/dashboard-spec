@@ -1,0 +1,17 @@
+Loki:
+  type: object
+  required:
+    - expr
+  properties:
+    datasource:
+      type: string
+      default: default
+    expr:
+      type: string
+    legendFormat:
+      type: string
+      default: ''
+      description: Defines the legend.
+    refId:
+      type: string
+      readOnly: true

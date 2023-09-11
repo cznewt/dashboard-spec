@@ -1,0 +1,59 @@
+Elasticsearch:
+  type: object
+  required:
+    - query
+  properties:
+    alias:
+      type: string
+    bucketAggs:
+      type: array
+      items:
+        type: object
+        properties:
+          fake:
+            type: boolean
+          field:
+            type: string
+          id:
+            type: string
+          settings:
+            type: object
+            properties:
+              interval:
+                type: string
+              min_doc_count:
+                type: integer
+                default: 0
+              order:
+                type: string
+              orderBy:
+                type: string
+              size:
+                type: string
+              trimEdges:
+                type: integer
+          type:
+            type: string
+    id:
+      type: string
+    metrics:
+      type: array
+      items:
+        type: object
+        properties:
+          field:
+            type: string
+          id:
+            type: string
+          type:
+            type: string
+            default: count
+    query:
+      type: string
+    timeField:
+      type: string
+      default: "@timestamp"
+
+    refId:
+      type: string
+      readOnly: true

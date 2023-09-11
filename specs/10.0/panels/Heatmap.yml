@@ -1,0 +1,107 @@
+Heatmap:
+  allOf:
+    - $ref: "_panel.yml#/panel"
+    - type: object
+      properties:
+        cards:
+          type: object
+          properties:
+            cardPadding:
+              type: integer
+            cardRound:
+              type: integer
+
+        color:
+          type: object
+          properties:
+            cardColor:
+              type: string
+              default: "#b4ff00"
+            colorScale:
+              type: string
+              default: sqrt
+            colorScheme:
+              type: string
+              default: interpolateWarm
+            exponent:
+              type: number
+              default: 0.5
+            mode:
+              type: string
+              default: spectrum
+
+        dataFormat:
+          type: string
+          default: tsbuckets
+        heatmap:
+          type: object
+        hideZeroBuckets:
+          type: boolean
+          default: true
+        highlightCards:
+          type: boolean
+          default: true
+        legend:
+          type: object
+          properties:
+            show:
+              type: boolean
+              default: true
+        maxDataPoints:
+          type: integer
+          default: 100
+        tooltip:
+          type: object
+          properties:
+            show:
+              type: boolean
+            showHistogram:
+              type: boolean
+        xAxis:
+          type: object
+          properties:
+            show:
+              type: boolean
+        yAxis:
+          type: object
+          properties:
+            format:
+              type: string
+              default: dtdurations
+            show:
+              type: boolean
+              default: true
+            logBase:
+              type: integer
+              default: 1
+            decimals:
+              type: integer
+            splitFactor:
+              type: integer
+            max:
+              type: integer
+            min:
+              type: integer
+
+        reverseYBuckets:
+          type: boolean
+          default: false
+        tooltipDecimals:
+          type: integer
+          default: 0
+        xBucketSize:
+          type: integer
+        xBucketNumber:
+          type: integer
+        yBucketBound:
+          type: string
+          default: upper
+        yBucketSize:
+          type: integer
+        yBucketNumber:
+          type: integer
+
+        type:
+          type: string
+          default: heatmap
+          readOnly: true

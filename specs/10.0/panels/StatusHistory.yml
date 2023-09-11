@@ -1,0 +1,91 @@
+StatusHistory:
+  allOf:
+    - $ref: "_panel.yml#/panel"
+    - type: object
+      properties:
+        fieldConfig:
+          $ref: "#/fieldConfig"
+        options:
+          $ref: "#/options"
+        type:
+          type: string
+          default: status-history 
+          readOnly: true
+
+custom:
+  type: object
+  properties:
+    lineWidth:
+      type: integer
+      default: 1
+    fillOpacity:
+      type: integer
+      default: 70
+
+defaults:
+  type: object
+  properties:
+    custom:
+      $ref: "#/custom"
+    color:
+      type: object
+      properties:
+        mode:
+          type: string
+          default: continuous-GrYlRd
+    mappings:
+      type: array
+      items:
+        $ref: "_mapping.yml#/mapping"
+    thresholds:
+      $ref: "_threshold.yml#/threshold"
+    unit:
+      type: string
+      default: short
+
+fieldConfig:
+  type: object
+  properties:
+    defaults:
+      $ref: "#/defaults"
+    overrides:
+      type: array
+      items:
+        $ref: "_override.yml#/override"
+
+options:
+  type: object
+  properties:
+    alignValue:
+      type: string
+    colHeight:
+      type: number
+      minimum: 0
+      exclusiveMinimum: true
+      maximum: 1
+    legend:
+      type: object
+      properties:
+        displayMode:
+          type: string
+          default: list
+        placement:
+          type: string
+          default: bottom
+    rowHeight:
+      type: number
+      minimum: 0
+      exclusiveMinimum: true
+      maximum: 1
+    showValue:
+      type: string
+      default: auto
+    tooltip:
+      type: object
+      properties:
+        mode:
+          type: string
+          default: single
+        sort:
+          type: string
+          default: none

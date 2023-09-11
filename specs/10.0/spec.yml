@@ -1,0 +1,73 @@
+openapi: 3.0.3
+
+info:
+  title: Grafana Dashboard Spec
+  version: '8.5'
+
+paths: {}
+
+components:
+  schemas:
+    Dashboard:
+      $ref: 'Dashboard.yml#/Dashboard'
+    Panel:
+      type: object
+      properties:
+        AlertGroups:
+          $ref: 'panels/AlertGroups.yml#/AlertGroups'
+        BarGauge:
+          $ref: 'panels/BarGauge.yml#/BarGauge'
+        Gauge:
+          $ref: 'panels/Gauge.yml#/Gauge'
+        Graph:
+          $ref: 'panels/Graph.yml#/Graph'
+        Heatmap:
+          $ref: 'panels/Heatmap.yml#/Heatmap'
+        Logs:
+          $ref: 'panels/Logs.yml#/Logs'
+        Row:
+          $ref: 'panels/Row.yml#/Row'
+        Stat:
+          $ref: 'panels/Stat.yml#/Stat'
+        StateTimeline:
+          $ref: 'panels/StateTimeline.yml#/StateTimeline'
+        StatusHistory:
+          $ref: 'panels/StatusHistory.yml#/StatusHistory'
+        Table:
+          $ref: 'panels/Table.yml#/Table'
+        Text:
+          $ref: 'panels/Text.yml#/Text'
+        TimeSeries:
+          $ref: 'panels/TimeSeries.yml#/TimeSeries'
+    Target:
+      type: object
+      properties:
+        Alertmanager:
+          $ref: 'targets/Alertmanager.yml#/Alertmanager'
+        ClickHouse:
+          $ref: 'targets/ClickHouse.yml#/ClickHouse'
+        Elasticsearch:
+          $ref: 'targets/Elasticsearch.yml#/Elasticsearch'
+        Graphite:
+          $ref: 'targets/Graphite.yml#/Graphite'
+        Loki:
+          $ref: 'targets/Loki.yml#/Loki'
+        OpenTsdb:
+          $ref: 'targets/OpenTsdb.yml#/OpenTsdb'
+        Prometheus:
+          $ref: 'targets/Prometheus.yml#/Prometheus'
+        Sentry:
+          $ref: 'targets/Sentry.yml#/Sentry'
+        Testdata:
+          $ref: 'targets/Testdata.yml#/Testdata'
+    Template:
+      type: object
+      properties:
+        Custom:
+          $ref: 'templates/Custom.yml#/Custom'
+        Datasource:
+          $ref: 'templates/Datasource.yml#/Datasource'
+        Interval:
+          $ref: 'templates/Interval.yml#/Interval'
+        Query:
+          $ref: 'templates/Query.yml#/Query'

@@ -1,0 +1,35 @@
+# Properties all panels have in common.
+
+panel:
+  type: object
+  properties:
+    datasource:
+      type: object
+      properties:
+        uid:
+          type: string
+          default: default
+      default:
+        uid: default
+    description:
+      type: string
+    gridPos:
+      $ref: '_gridPos.yml#/gridPos'
+    links:
+      title: Panel Links
+      type: array
+      items:
+        $ref: '_link.yml#/link'
+    repeat:
+      type: string
+    repeatDirection:
+      type: string
+    targets:
+      type: array
+      items:
+        type: object
+    title:
+      type: string
+    transparent:
+      type: boolean
+      default: false

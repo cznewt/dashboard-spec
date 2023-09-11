@@ -1,0 +1,17 @@
+Text:
+  allOf:
+    - $ref: "_panel.yml#/panel"
+    - type: object
+      properties:
+        options:
+          type: object
+          properties:
+            content:
+              type: string
+            mode:
+              type: string
+              default: markdown
+        type:
+          type: string
+          default: text
+          readOnly: true

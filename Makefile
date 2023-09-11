@@ -1,4 +1,4 @@
-SPEC_VERSION ?= 8.5
+SPEC_VERSION ?= 10.0
 
 validate:
 	@swagger-cli validate \

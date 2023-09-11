@@ -1,0 +1,9 @@
+transformation:
+  type: array
+  items:
+    type: object
+    properties:
+      id:
+        type: string
+      options:
+        type: list

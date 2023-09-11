@@ -1,0 +1,48 @@
+BarGauge:
+  allOf:
+    - $ref: "_panel.yml#/panel"
+    - type: object
+      properties:
+        fieldConfig:
+          $ref: "_fieldConfig.yml#/fieldConfig"
+        options:
+          $ref: "#/options"
+        type:
+          type: string
+          default: bargauge
+          readOnly: true
+
+options:
+  type: object
+  properties:
+    displayMode:
+      type: string
+      default: lcd
+    orientation:
+      type: string
+      default: vertical
+    minVizWidth:
+      type: integer
+      default: 0
+    minVizHeight:
+      type: integer
+      default: 10
+    reduceOptions:
+      type: object
+      properties:
+        calcs:
+          type: array
+          items:
+            type: string
+          default:
+            - mean
+        fields:
+          type: string
+        values:
+          type: boolean
+          default: false
+    showUnfilled:
+      type: boolean
+      default: false
+    text:
+      type: object

@@ -1,0 +1,94 @@
+Stat:
+  allOf:
+    - $ref: '_panel.yml#/panel'
+    - type: object
+      properties:
+        fieldConfig:
+          $ref: '#/fieldConfig'
+        options:
+          $ref: '#/options'
+        transformations:
+          type: array
+          items:
+            $ref: '_transformation.yml#/transformation'
+        type:
+          type: string
+          default: 'stat'
+          readOnly: true
+
+defaults:
+  type: object
+  properties:
+    color:
+      type: object
+      properties:
+        mode:
+          type: string
+    custom:
+      type: object
+      default: {}
+    displayName:
+      type: string
+    links:
+      title: Data Links
+      type: array
+      items:
+        $ref: '_link.yml#/link'
+    mappings:
+      type: array
+      items:
+        $ref: '_mapping.yml#/mapping'
+    max:
+      type: integer
+    min:
+      type: integer
+    noValue:
+      type: string
+    thresholds:
+      $ref: '_threshold.yml#/threshold'
+    unit:
+      type: string
+
+fieldConfig:
+  type: object
+  properties:
+    defaults:
+      $ref: '#/defaults'
+    overrides:
+      type: array
+      items:
+        $ref: '_override.yml#/override'
+
+options:
+  type: object
+  properties:
+    colorMode:
+      type: string
+      default: value
+    graphMode:
+      type: string
+      default: none
+    justifyMode:
+      type: string
+      default: auto
+    orientation:
+      type: string
+      default: auto
+    reduceOptions:
+      type: object
+      properties:
+        calcs:
+          type: array
+          items:
+            type: string
+          default:
+            - mean
+        fields:
+          type: string
+        values:
+          type: boolean
+          default: false
+    textMode:
+      type: string
+      default: auto
+

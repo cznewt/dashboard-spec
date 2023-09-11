@@ -1,0 +1,54 @@
+Interval:
+  type: object
+  required:
+    - name
+  properties:
+    auto:
+      type: boolean
+      default: false
+    #auto_count:
+    #  type: integer
+    #  default: 30
+    #auto_min:
+    #  type: string
+    #  default: 1m
+    current:
+      type: object
+      properties:
+        selected:
+          type: boolean
+        text:
+          type: string
+        value:
+          type: string
+    hide:
+      type: integer
+      default: 0
+    label:
+      type: string
+    name:
+      type: string
+    options:
+      type: array
+      items:
+        type: object
+        properties:
+          selected:
+            type: boolean
+            default: true
+          text:
+            type: string
+          value:
+            type: string
+    query:
+      type: string
+    refresh:
+      type: integer
+      default: 0
+    skipUrlSync:
+      type: string
+      default: false
+    type:
+      type: string
+      default: interval
+      readOnly: true

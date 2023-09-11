@@ -1,0 +1,53 @@
+ClickHouse:
+  type: object
+  required:
+    - database
+    - table
+    - query
+  properties:
+    database:
+      type: string
+    datasource:
+      type: string
+    dateColDataType:
+      type: string
+      default: date
+    dateLoading:
+      type: boolean
+      default: false
+    dateTimeColDataType:
+      type: string
+      default: timestamp
+    datetimeLoading:
+      type: boolean
+      default: false
+    extrapolate:
+      type: boolean
+      default: true
+    format:
+      type: string
+      default: time_series
+    formattedQuery:
+      type: string
+      readOnly: true
+    intervalFactor:
+      type: integer
+      default: 1
+    query:
+      type: string
+    rawQuery:
+      type: string
+    refId:
+      type: string
+      readOnly: true
+    round:
+      type: string
+      default: 0s
+    skip_comments:
+      type: boolean
+      default: true
+    table:
+      type: string
+    tableLoading:
+      type: boolean
+      default: false

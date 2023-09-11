@@ -1,0 +1,22 @@
+Alertmanager:
+  type: object
+  required:
+    - filters
+  properties:
+    active:
+      type: boolean
+      default: true
+    datasource:
+      type: string
+      default: default
+    filters:
+      type: string
+    receiver:
+      type: string
+      default: ''
+    refId:
+      type: string
+      readOnly: true
+    silenced:
+      type: boolean
+      default: false

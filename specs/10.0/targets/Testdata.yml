@@ -1,0 +1,16 @@
+Testdata:
+  type: object
+  properties:
+    alias:
+      type: string
+    csvContent:
+      type: string
+    datasource:
+      type: string
+      default: default
+    scenarioId:
+      type: string
+      default: csv_content
+    refId:
+      type: string
+      readOnly: true

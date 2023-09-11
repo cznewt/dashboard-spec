@@ -1,0 +1,20 @@
+Graphite:
+  type: object
+  required:
+    - target
+  properties:
+    datasource:
+      type: string
+    hide:
+      type: boolean
+      default: false
+    refId:
+      type: string
+      readOnly: true
+    target:
+      type: string
+    targetFull:
+      type: string
+    textEditor:
+      type: boolean
+      default: false

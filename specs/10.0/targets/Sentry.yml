@@ -1,0 +1,34 @@
+Sentry:
+  type: object
+  required:
+    - queryType
+  properties:
+    datasource:
+      type: string
+      default: default
+    environments:
+      title: Environments
+      type: array
+      description: Select one or more environments to filter the results.
+      items:
+        type: string
+    issuesLimit:
+      type: integer
+      description: Limit the number of results displayed.
+    issuesQuery:
+      type: string
+      description: Sentry query for more relevant results.
+    issuesSort:
+      type: string
+      description: Select the order of results you want to display.
+    projectIds:
+      type: array
+      description: Select one or more projects to filter the results.
+      items:
+        type: integer
+    queryType:
+      type: string
+      default: issues
+    refId:
+      type: string
+      readOnly: true

@@ -1,0 +1,7 @@
+mapping:
+  type: object
+  properties:
+    options:
+      type: object
+    type:
+      type: string

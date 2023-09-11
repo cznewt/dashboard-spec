@@ -1,0 +1,41 @@
+Logs:
+  allOf:
+    - $ref: "_panel.yml#/panel"
+    - type: object
+      properties:
+        height:
+          type: string
+        options:
+          $ref: "#/options"
+        type:
+          type: string
+          default: logs
+          readOnly: true
+
+options:
+  type: object
+  properties:
+    dedupStrategy:
+      type: string
+      default: none
+    enableLogDetails:
+      type: boolean
+      default: true
+    prettifyLogMessage:
+      type: boolean
+      default: false
+    showCommonLabels:
+      type: boolean
+      default: false
+    showLabels:
+      type: boolean
+      default: false
+    showTime:
+      type: boolean
+      default: true
+    sortOrder:
+      type: string
+      default: Descending
+    wrapLogMessage:
+      type: boolean
+      default: true
